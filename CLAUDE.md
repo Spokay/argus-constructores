@@ -51,6 +51,22 @@ npm run build
   adds the bearer only to URLs under `resourceServer.baseUrl`, `authGuard` protects `/admin`.
   `errorHandlingInterceptor` logs out and goes to `/login` on any 401.
 
+## Projects (cross-cutting)
+
+- Backend package `project/`: `PublicProjectController` (`GET /projects/**`, anonymous, published
+  only — a hidden project or its images answer 404) and `AdminProjectController`
+  (`/admin/projects`: CRUD, `PUT /order`, images). New projects are created hidden and last.
+- Order: `position` column, rewritten whole by `PUT .../order` with every id exactly once
+  (otherwise 400). Same rule for a project's images; the first image is the cover.
+- Images are `bytea` in `project_image`, one file per multipart request (field `file`, 10 MB).
+  The type is detected from magic bytes (`ImageType`: JPEG/PNG/WebP, else 415), never from
+  the client's Content-Type. Listings use the `ImageSummary` projection so bytes are never
+  loaded with a list; deleting a project cascades in the database.
+- Frontend: `core/project.service.ts` (public; `imageUrl` for a plain `<img src>`) and
+  `core/admin-project.service.ts` (`imageBlob` goes through HttpClient because hidden
+  projects' images need the bearer token).
+- **No UI yet on purpose**: pages wait for the Claude Design design system import.
+
 ## Architecture
 
 - **Runtime config (frontend)**: `public/assets/app-config.json` loaded by `AppConfigService`
