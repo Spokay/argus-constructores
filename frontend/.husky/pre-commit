@@ -1,5 +1,5 @@
-# Lint TypeScript and Angular templates
+# Hooks run from the git root; only check the frontend when it has staged changes.
+git diff --cached --name-only | grep -q '^frontend/' || exit 0
+cd frontend
 npx eslint . --ext .ts,.html
-
-# Prettier check (do not write on CI)
 npx prettier --check .

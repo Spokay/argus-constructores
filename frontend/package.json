@@ -15,7 +15,7 @@
     "lint": "eslint . --ext .ts,.html",
     "format": "prettier --write .",
     "commit": "cz",
-    "prepare": "husky"
+    "prepare": "cd .. && husky frontend/.husky"
   },
   "prettier": {
     "printWidth": 100,

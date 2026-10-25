@@ -106,6 +106,11 @@ npm run build
 
 ## Repo notes
 
-- Husky hooks and `.github/workflows` still live per subproject (template layout); Git and
-  GitHub only read them at the root — move them up when setting up CI/hooks.
+- CI: `.github/workflows/ci.yml` at the root, one job per subproject (backend `./mvnw verify`
+  with Testcontainers, frontend lint/prettier/typecheck/test/build).
+- Git hooks are husky's, kept in `frontend/.husky` and installed at the git root by
+  `npm install` (`prepare`: `cd .. && husky frontend/.husky`). They run from the git root, so
+  each script `cd frontend` first. pre-commit lints only when `frontend/` files are staged;
+  commit-msg enforces Conventional Commits (commitlint); pre-push typechecks and builds the
+  frontend. Backend checks run in CI only.
 - Decisions (ADR): `$BRAIN/10-projets/argus-constructores/decisions/`.

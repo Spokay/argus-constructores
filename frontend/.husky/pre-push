@@ -1,3 +1,4 @@
-# Type-check and build before pushing
+# Hooks run from the git root. Backend checks run in CI (they need Docker).
+cd frontend
 npm run typecheck || exit 1
 npm run build || exit 1
