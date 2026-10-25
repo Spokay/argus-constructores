@@ -2,12 +2,15 @@
 
 ```bash
 npm install
-npm start            # http://localhost:4200, proxies /api to http://localhost:8080
-npm run test:ci      # single headless run (npm test = watch mode)
+npm start                               # Spanish, http://localhost:4200, proxies /api to :8080
+npx ng serve --configuration=en         # English
+npm run test:ci                         # single headless run (npm test = watch mode)
 npm run lint
 npm run typecheck
-npm run build        # dist/argus-constructores-frontend
+npx ng extract-i18n                     # refresh src/locale/messages.xlf after changing texts
+npm run build                           # dist/argus-constructores-frontend/browser/{es,en}
 ```
 
-Deployment: the build is environment-independent; serve `dist/` and replace
-`assets/app-config.json` (`resourceServer.baseUrl`) per environment.
+Deployment: serve `browser/es/` under `/es/` and `browser/en/` under `/en/`, redirect `/` to
+`/es/`, and fall back to each locale's `index.html` for unknown paths. Each locale reads its own
+`assets/app-config.json` (`resourceServer.baseUrl`), replaceable per environment.

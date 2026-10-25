@@ -50,7 +50,7 @@ describe('LoginPage', () => {
     const alert = (fixture.nativeElement as HTMLElement).querySelector(
       '[data-testid="login-error"]',
     );
-    expect(alert?.textContent).toContain('Invalid username or password');
+    expect(alert?.textContent).toContain('usuario o contraseña incorrectos');
     expect(router.navigate).not.toHaveBeenCalled();
   });
 

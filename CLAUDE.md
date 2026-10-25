@@ -14,8 +14,7 @@ fullstack`, then OIDC removed in favour of a self-contained login:
 - `compose.yaml` — local PostgreSQL. Secrets in the git-ignored root `.env` (template:
   `.env.example`), read by both compose and the backend.
 
-No root build: always `cd` into a subproject. UI will follow a design system prepared on
-Claude Design (not applied yet).
+No root build: always `cd` into a subproject.
 
 ## Commands
 
@@ -58,6 +57,9 @@ npm run build
   (`/admin/projects`: CRUD, `PUT /order`, images). New projects are created hidden and last.
 - Order: `position` column, rewritten whole by `PUT .../order` with every id exactly once
   (otherwise 400). Same rule for a project's images; the first image is the cover.
+- Fields follow the brochure's fact sheet: `name`, `purpose` (Objeto), `client` (Contratante),
+  `areaM2`, `valueSmmlv` (Valor, optional like the area), `city` (“City - Department”),
+  `sector` (5 values), `status` (`COMPLETED` / `IN_PROGRESS` = “En ejecución”).
 - Images are `bytea` in `project_image`, one file per multipart request (field `file`, 10 MB).
   The type is detected from magic bytes (`ImageType`: JPEG/PNG/WebP, else 415), never from
   the client's Content-Type. Listings use the `ImageSummary` projection so bytes are never
@@ -65,7 +67,25 @@ npm run build
 - Frontend: `core/project.service.ts` (public; `imageUrl` for a plain `<img src>`) and
   `core/admin-project.service.ts` (`imageBlob` goes through HttpClient because hidden
   projects' images need the bearer token).
-- **No UI yet on purpose**: pages wait for the Claude Design design system import.
+- The site shows **one photo per project** (the first image); the admin form replaces it
+  (upload the new one, then delete the old ones).
+
+## Design system and i18n (frontend)
+
+- Design system = Claude Design artifact “Argus Constructores”
+  (https://claude.ai/artifact/6aZzBoaPxhwagkCFypKZad), plain HTML/CSS. Imported into
+  `src/styles/argus/`: `components.css` (verbatim copy, `ag-*` classes — never edit, re-import),
+  `tokens.css` (generated from its `tokens.json`), fonts; logos and hero photo in
+  `public/assets/brand/`. Templates use the `ag-*` markup from the artifact's component previews.
+- Themes: Light is the default (`:root`); dark sections carry `data-theme="brochure"`.
+- Brand rules that matter: Spanish (Colombia) with *usted*, square corners, titles in League
+  Gothic ALL CAPS via CSS, errors start with “Error:”.
+- i18n is `@angular/localize`: source locale `es-CO` (served under `/es/`), `en` under `/en/`,
+  one build per locale, so switching language is a full page load (header link). Mark text with
+  `i18n="@@id"` / `$localize`; after any change run `npx ng extract-i18n` and add the English
+  target to `src/locale/messages.en.xlf` (a missing target falls back to Spanish).
+  `ng serve` serves Spanish only; `ng serve --configuration=en` for English.
+  Project data (names, purpose…) is not translated.
 
 ## Architecture
 

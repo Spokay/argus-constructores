@@ -14,7 +14,10 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js",
+              "@angular/localize/init"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -22,7 +25,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -44,12 +49,18 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "localize": true
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "en": {
+              "localize": [
+                "en"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -62,21 +73,33 @@
             },
             "development": {
               "buildTarget": "argus-constructores-frontend:build:development"
+            },
+            "en": {
+              "buildTarget": "argus-constructores-frontend:build:development,en"
             }
           },
           "defaultConfiguration": "development",
           "options": {
-            "allowedHosts": ["localhost"],
+            "allowedHosts": [
+              "localhost"
+            ],
             "proxyConfig": "src/proxy.conf.json"
           }
         },
         "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
+          "builder": "@angular/build:extract-i18n",
+          "options": {
+            "outputPath": "src/locale"
+          }
         },
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing",
+              "@angular/localize/init"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
@@ -84,7 +107,21 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css"
+            ]
+          }
+        }
+      },
+      "i18n": {
+        "sourceLocale": {
+          "code": "es-CO",
+          "subPath": "es"
+        },
+        "locales": {
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            "subPath": "en"
           }
         }
       }

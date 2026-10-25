@@ -1,0 +1,30 @@
+table {
+  width: 100%;
+  margin-top: var(--space-9);
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+th {
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+th,
+td {
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  border-bottom: var(--border-thin) solid var(--field-border);
+}
+
+.order {
+  white-space: nowrap;
+}
+
+.order .ag-btn + .ag-btn {
+  margin-left: var(--space-2);
+}

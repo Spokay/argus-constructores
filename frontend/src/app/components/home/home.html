@@ -1,2 +1,47 @@
-<h2>Our projects</h2>
-<p>Coming soon.</p>
+<section class="ag-hero" data-theme="brochure" aria-labelledby="hero-title">
+  <div class="ag-hero-panel">
+    <span class="ag-hero-quote" aria-hidden="true">“</span>
+    <h1 class="ag-hero-title" id="hero-title" i18n="@@hero.title">
+      En convivencia con los espacios naturales
+    </h1>
+    <p class="ag-hero-lead" i18n="@@hero.lead">
+      Diseño, comercialización y construcción de proyectos arquitectónicos, civiles y urbanísticos
+      en toda Colombia.
+    </p>
+    <div class="ag-hero-actions">
+      <a class="ag-btn ag-btn--on-dark" [href]="mailto" i18n="@@contactUs">Contáctanos</a>
+      <a class="ag-btn ag-btn--secondary" routerLink="/projects" i18n="@@hero.seeProjects"
+        >Ver proyectos</a
+      >
+    </div>
+  </div>
+  <div class="ag-hero-photo">
+    <img
+      src="assets/brand/cover-aerial-bw.jpg"
+      alt="Vista aérea de un centro de salud construido por Argus Constructores en Bogotá"
+      i18n-alt="@@hero.photoAlt"
+    />
+  </div>
+  <svg class="ag-hero-bands" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+    <polygon class="cyan" points="0,96 0,120 760,120 1200,40 1200,8" />
+    <polygon class="navy" points="520,120 1200,120 1200,52" />
+  </svg>
+</section>
+
+@if (featured().length) {
+  <section class="ag-section" aria-labelledby="featured-title">
+    <div class="ag-section-head">
+      <h2 class="ag-section-title" id="featured-title" i18n="@@home.featured">
+        Proyectos destacados
+      </h2>
+      <a class="ag-link" routerLink="/projects" i18n="@@seeAllProjects">Ver todos los proyectos</a>
+    </div>
+    <div class="ag-grid">
+      @for (project of featured(); track project.id) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </section>
+}
+
+<app-cta-band />

@@ -67,8 +67,10 @@ class ProjectControllerTest {
                 .andExpect(jsonPath("$.published").value(true));
 
         mockMvc.perform(get("/projects"))
-                .andExpect(jsonPath("$[0].title").value("Villa"))
-                .andExpect(jsonPath("$[0].category").value("RESIDENTIAL"));
+                .andExpect(jsonPath("$[0].name").value("Villa"))
+                .andExpect(jsonPath("$[0].sector").value("HOSPITAL"))
+                .andExpect(jsonPath("$[0].areaM2").value(19393))
+                .andExpect(jsonPath("$[0].valueSmmlv").value(34.854));
         mockMvc.perform(get("/projects/" + id)).andExpect(status().isOk());
     }
 
@@ -85,7 +87,10 @@ class ProjectControllerTest {
         long id = create("Villa");
         mockMvc.perform(json(put("/admin/projects/" + id), body("Villa", true)).with(ADMIN));
 
-        String withoutPublished = "{\"title\":\"Villa 2\",\"description\":\"d\",\"category\":\"PUBLIC\"}";
+        // Área and Valor are optional too: projects in execution have none yet.
+        String withoutPublished = """
+                {"name":"Villa 2","purpose":"d","client":"c","city":"Bogotá D.C.",
+                 "sector":"HOUSING","status":"IN_PROGRESS"}""";
         mockMvc.perform(json(post("/admin/projects"), withoutPublished).with(ADMIN))
                 .andExpect(status().isCreated());
         mockMvc.perform(json(put("/admin/projects/" + id), withoutPublished).with(ADMIN))
@@ -96,7 +101,9 @@ class ProjectControllerTest {
     @Test
     void anInvalidProjectIsRejected() throws Exception {
         mockMvc.perform(json(post("/admin/projects"),
-                        "{\"title\":\" \",\"description\":\"d\",\"category\":\"RESIDENTIAL\",\"completionYear\":1500}")
+                        """
+                        {"name":" ","purpose":"d","client":"c","city":"Lyon","sector":"HOUSING",
+                         "status":"COMPLETED","areaM2":-1}""")
                         .with(ADMIN))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON));
@@ -111,7 +118,7 @@ class ProjectControllerTest {
                 .andExpect(status().isNoContent());
 
         mockMvc.perform(get("/admin/projects").with(ADMIN))
-                .andExpect(jsonPath("$[*].title", contains("Second", "First")));
+                .andExpect(jsonPath("$[*].name", contains("Second", "First")));
     }
 
     @Test
@@ -199,10 +206,11 @@ class ProjectControllerTest {
         return ((Number) JsonPath.read(response, "$.id")).longValue();
     }
 
-    private static String body(String title, boolean published) {
+    private static String body(String name, boolean published) {
         return """
-                {"title":"%s","description":"A description","city":"Lyon","completionYear":2024,
-                 "category":"RESIDENTIAL","published":%s}""".formatted(title, published);
+                {"name":"%s","purpose":"Diseño y construcción","client":"Agencia Logística",
+                 "areaM2":19393,"valueSmmlv":34.854,"city":"Medellín - Antioquia",
+                 "sector":"HOSPITAL","status":"COMPLETED","published":%s}""".formatted(name, published);
     }
 
     private static MockHttpServletRequestBuilder json(MockHttpServletRequestBuilder builder, String body) {

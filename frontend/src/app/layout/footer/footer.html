@@ -1,5 +1,35 @@
-<footer>
-  <div class="container">
-    <p>&copy; {{ currentYear }} Argus Constructores. All rights reserved.</p>
+<footer class="ag-footer">
+  <svg class="ag-footer-band" viewBox="0 0 360 300" preserveAspectRatio="none" aria-hidden="true">
+    <polygon class="steel" points="250,0 360,0 360,300 120,300" />
+    <polygon class="cyan" points="330,0 360,0 360,300 270,300" />
+  </svg>
+  <div class="ag-footer-inner">
+    <div>
+      <img
+        src="assets/brand/argus-symbol.svg"
+        alt="Argus Constructores"
+        style="height: 56px; display: block"
+      />
+      <p class="ag-footer-tagline" i18n="@@tagline">En convivencia con los espacios naturales</p>
+    </div>
+    <div>
+      <h4 i18n="@@footer.services">Servicios</h4>
+      <ul>
+        <li i18n="@@footer.consulting">Consultoría</li>
+        <li i18n="@@footer.construction">Construcción</li>
+        <li i18n="@@footer.commercialization">Comercialización</li>
+      </ul>
+    </div>
+    <div>
+      <h4 i18n="@@contactUs">Contáctanos</h4>
+      <ul>
+        <li>{{ contact.phones.join(' · ') }}</li>
+        <li>
+          <a [href]="mailto">{{ contact.email }}</a>
+        </li>
+        <li>{{ contact.city }}</li>
+      </ul>
+    </div>
   </div>
+  <div class="ag-footer-legal">© Argus Constructores S.A.S.</div>
 </footer>

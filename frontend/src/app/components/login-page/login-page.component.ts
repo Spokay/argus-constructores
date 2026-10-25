@@ -35,7 +35,9 @@ export class LoginPage {
       error: (error: HttpErrorResponse) => {
         this.submitting.set(false);
         this.error.set(
-          error.status === 401 ? 'Invalid username or password.' : 'Login failed, please retry.',
+          error.status === 401
+            ? $localize`:@@login.invalid:Error: usuario o contraseña incorrectos.`
+            : $localize`:@@login.failed:Error: no se pudo iniciar sesión, intente de nuevo.`,
         );
       },
     });

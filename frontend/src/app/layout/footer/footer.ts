@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { CONTACT } from '@core/contact';
 
+/** Design system SiteFooter. */
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.html',
-  styleUrls: ['./footer.css'],
 })
 export class Footer {
-  currentYear = new Date().getFullYear();
+  readonly contact = CONTACT;
+  readonly mailto = `mailto:${CONTACT.email}`;
 }

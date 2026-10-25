@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
@@ -20,18 +21,32 @@ public class Project {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
 
+    /** OBJETO on the fact sheet: what was designed or built. */
     @Column(nullable = false)
-    private String description;
+    private String purpose;
 
+    /** CONTRATANTE on the fact sheet. */
+    @Column(nullable = false)
+    private String client;
+
+    private BigDecimal areaM2;
+
+    /** VALOR on the fact sheet, in SMMLV (Colombian monthly minimum wages). */
+    private BigDecimal valueSmmlv;
+
+    /** “City - Department”, e.g. “Medellín - Antioquia”. */
+    @Column(nullable = false)
     private String city;
-
-    private Integer completionYear;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Category category;
+    private Sector sector;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ProjectStatus status;
 
     @Column(nullable = false)
     private boolean published;
@@ -68,20 +83,44 @@ public class Project {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPurpose() {
+        return purpose;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+    public void setClient(String client) {
+        this.client = client;
+    }
+
+    public BigDecimal getAreaM2() {
+        return areaM2;
+    }
+
+    public void setAreaM2(BigDecimal areaM2) {
+        this.areaM2 = areaM2;
+    }
+
+    public BigDecimal getValueSmmlv() {
+        return valueSmmlv;
+    }
+
+    public void setValueSmmlv(BigDecimal valueSmmlv) {
+        this.valueSmmlv = valueSmmlv;
     }
 
     public String getCity() {
@@ -92,20 +131,20 @@ public class Project {
         this.city = city;
     }
 
-    public Integer getCompletionYear() {
-        return completionYear;
+    public Sector getSector() {
+        return sector;
     }
 
-    public void setCompletionYear(Integer completionYear) {
-        this.completionYear = completionYear;
+    public void setSector(Sector sector) {
+        this.sector = sector;
     }
 
-    public Category getCategory() {
-        return category;
+    public ProjectStatus getStatus() {
+        return status;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setStatus(ProjectStatus status) {
+        this.status = status;
     }
 
     public boolean isPublished() {

@@ -1,22 +1,37 @@
-export type Category = 'RESIDENTIAL' | 'COMMERCIAL' | 'PUBLIC' | 'RENOVATION';
+export type Sector = 'HOSPITAL' | 'EDUCATION' | 'INSTITUTIONAL' | 'INFRASTRUCTURE' | 'HOUSING';
+export type ProjectStatus = 'COMPLETED' | 'IN_PROGRESS';
 
-export const CATEGORY_LABELS: Record<Category, string> = {
-  RESIDENTIAL: 'Residential',
-  COMMERCIAL: 'Commercial',
-  PUBLIC: 'Public',
-  RENOVATION: 'Renovation',
-};
-
-/** `imageIds` is in display order; the first one is the cover. */
+/** Field names are the code's; the brochure's labels are Objeto (purpose), Contratante (client), Valor (valueSmmlv). */
 export interface Project {
   id: number;
-  title: string;
-  description: string;
-  city: string | null;
-  completionYear: number | null;
-  category: Category;
+  name: string;
+  purpose: string;
+  client: string;
+  areaM2: number | null;
+  valueSmmlv: number | null;
+  /** “City - Department”, e.g. “Medellín - Antioquia”. */
+  city: string;
+  sector: Sector;
+  status: ProjectStatus;
   published: boolean;
+  /** Display order; the first one is the cover. */
   imageIds: number[];
 }
 
 export type ProjectRequest = Omit<Project, 'id' | 'imageIds'>;
+
+export const SECTORS: Sector[] = [
+  'HOSPITAL',
+  'EDUCATION',
+  'INSTITUTIONAL',
+  'INFRASTRUCTURE',
+  'HOUSING',
+];
+
+export const SECTOR_LABELS: Record<Sector, string> = {
+  HOSPITAL: $localize`:@@sector.hospital:Sector hospitalario`,
+  EDUCATION: $localize`:@@sector.education:Sector educativo`,
+  INSTITUTIONAL: $localize`:@@sector.institutional:Sector institucional`,
+  INFRASTRUCTURE: $localize`:@@sector.infrastructure:Sector infraestructura`,
+  HOUSING: $localize`:@@sector.housing:Sector vivienda`,
+};

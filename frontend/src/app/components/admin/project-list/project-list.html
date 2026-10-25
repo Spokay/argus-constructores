@@ -1,0 +1,89 @@
+<section class="ag-section">
+  <div class="ag-section-head">
+    <h1 class="page-title" i18n="@@nav.admin">Administración</h1>
+    <button
+      type="button"
+      class="ag-btn ag-btn--secondary ag-btn--sm"
+      (click)="logout()"
+      i18n="@@nav.logout"
+    >
+      Cerrar sesión
+    </button>
+  </div>
+
+  <a class="ag-btn ag-btn--primary" routerLink="/admin/projects/new" i18n="@@admin.new"
+    >Nuevo proyecto</a
+  >
+
+  @if (error(); as message) {
+    <p class="ag-error" role="alert">{{ message }}</p>
+  }
+
+  <table>
+    <thead>
+      <tr>
+        <th i18n="@@admin.col.project">Proyecto</th>
+        <th i18n="@@admin.col.sector">Sector</th>
+        <th i18n="@@admin.col.published">Publicado</th>
+        <th i18n="@@admin.col.order">Orden</th>
+        <th><span class="visually-hidden" i18n="@@admin.col.actions">Acciones</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (project of projects(); track project.id; let i = $index, first = $first, last = $last) {
+        <tr>
+          <td>
+            <a class="ag-link" [routerLink]="['/admin/projects', project.id]">{{ project.name }}</a>
+          </td>
+          <td>{{ sectorLine(project) }}</td>
+          <td>
+            <label class="ag-check">
+              <input
+                type="checkbox"
+                [checked]="project.published"
+                (change)="togglePublished(project)"
+              />
+              <span class="visually-hidden" i18n="@@admin.publish"
+                >Publicar {{ project.name }}</span
+              >
+            </label>
+          </td>
+          <td class="order">
+            <button
+              type="button"
+              class="ag-btn ag-btn--secondary ag-btn--sm"
+              [disabled]="first"
+              (click)="move(i, -1)"
+            >
+              <span aria-hidden="true">↑</span
+              ><span class="visually-hidden" i18n="@@admin.moveUp">Subir</span>
+            </button>
+            <button
+              type="button"
+              class="ag-btn ag-btn--secondary ag-btn--sm"
+              [disabled]="last"
+              (click)="move(i, 1)"
+            >
+              <span aria-hidden="true">↓</span
+              ><span class="visually-hidden" i18n="@@admin.moveDown">Bajar</span>
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="ag-btn ag-btn--link"
+              (click)="remove(project)"
+              i18n="@@admin.delete"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" i18n="@@admin.empty">Todavía no hay proyectos.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>

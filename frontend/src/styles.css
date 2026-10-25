@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/argus/tokens.css';
+@import './styles/argus/components.css';
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* Inner pages open with a plain screen-h1 title (the Hero is for the home page only). */
+.page-title {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 64px;
+  text-transform: uppercase;
+}
+
+.page-lead {
+  margin: 0 0 var(--space-9);
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 900px) {
+  .page-title {
+    font-size: 44px;
+    line-height: 44px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

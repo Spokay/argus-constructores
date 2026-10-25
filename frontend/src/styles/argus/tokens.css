@@ -1,0 +1,99 @@
+/* Generated from the design system's tokens.json. Light is the website default; brochure is the
+ * dark theme, switched locally with data-theme="brochure". Role tokens are declared in both
+ * blocks because a var() referencing another var() resolves where it is declared. */
+
+@font-face {
+  font-family: 'League Gothic';
+  src: url('./fonts/LeagueGothic-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./fonts/OpenSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./fonts/OpenSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root,
+[data-theme='light'] {
+  --charcoal: #333333;
+  --white: #ffffff;
+  --black: #000000;
+  --argus-cyan: #1ba7df;
+  --steel-blue: #2a84ad;
+  --deep-navy: #0b486a;
+  --midnight: #04152a;
+  --mist-grey: #d8d8d8;
+  --logo-cyan: #00b0f0;
+  --logo-ink: #0d0d0f;
+  --logo-mauve: #826061;
+  --logo-outline: #645f60;
+  --font-display: 'League Gothic', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Open Sans', system-ui, sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-9: 36px;
+  --panel-width: 286px;
+  --space-12: 48px;
+  --space-24: 96px;
+  --control-height: 48px;
+  --content-width: 1200px;
+  --border-thin: 1px;
+  --border-strong: 2px;
+  --nav-indicator: 3px;
+  --radius-none: 0;
+  --surface: var(--white);
+  --surface-alt: #f4f4f4;
+  --ink: var(--charcoal);
+  --ink-muted: #5c5c5c;
+  --accent-text: var(--deep-navy);
+  --accent-fill: var(--argus-cyan);
+  --band-dark: var(--deep-navy);
+  --band-light: var(--mist-grey);
+  --panel: var(--steel-blue);
+  --on-panel: var(--white);
+  --action: var(--deep-navy);
+  --action-hover: var(--midnight);
+  --on-action: var(--white);
+  --focus-ring: var(--accent-text);
+  --field-bg: var(--white);
+  --field-border: var(--ink-muted);
+  --danger: #b3261e;
+  --card-panel: var(--charcoal);
+  --on-card: var(--white);
+}
+
+[data-theme='brochure'] {
+  --surface: var(--charcoal);
+  --surface-alt: var(--black);
+  --ink: var(--white);
+  --ink-muted: var(--mist-grey);
+  --accent-text: var(--argus-cyan);
+  --accent-fill: var(--argus-cyan);
+  --band-dark: var(--deep-navy);
+  --band-light: var(--mist-grey);
+  --panel: var(--steel-blue);
+  --on-panel: var(--white);
+  --action: var(--deep-navy);
+  --action-hover: #155a82;
+  --on-action: var(--white);
+  --focus-ring: var(--accent-text);
+  --field-bg: var(--black);
+  --field-border: var(--ink-muted);
+  --danger: #ff9e94;
+  --card-panel: var(--black);
+  --on-card: var(--white);
+}

@@ -21,8 +21,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    // Argus Constructores is replaced in both this spec and header.html when the CLI
-    // scaffolds a project, so this assertion holds before and after templating.
-    expect(compiled.querySelector('h1')?.textContent).toContain('Argus Constructores');
+    expect(compiled.querySelector('.ag-brand')?.textContent).toContain('Argus Constructores');
   });
 });

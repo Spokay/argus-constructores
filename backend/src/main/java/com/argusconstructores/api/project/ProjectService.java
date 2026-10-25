@@ -119,11 +119,14 @@ public class ProjectService {
     }
 
     private static void apply(Project project, ProjectRequest request) {
-        project.setTitle(request.title().strip());
-        project.setDescription(request.description().strip());
-        project.setCity(request.city() == null || request.city().isBlank() ? null : request.city().strip());
-        project.setCompletionYear(request.completionYear());
-        project.setCategory(request.category());
+        project.setName(request.name().strip());
+        project.setPurpose(request.purpose().strip());
+        project.setClient(request.client().strip());
+        project.setAreaM2(request.areaM2());
+        project.setValueSmmlv(request.valueSmmlv());
+        project.setCity(request.city().strip());
+        project.setSector(request.sector());
+        project.setStatus(request.status());
     }
 
     private List<ProjectResponse> withImages(List<Project> projects) {

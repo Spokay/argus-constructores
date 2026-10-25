@@ -1,0 +1,155 @@
+<section class="ag-section">
+  <a class="ag-link" routerLink="/admin" i18n="@@admin.back">Volver a los proyectos</a>
+  <h1 class="page-title">
+    @if (project()) {
+      <ng-container i18n="@@admin.edit">Editar proyecto</ng-container>
+    } @else {
+      <ng-container i18n="@@admin.new">Nuevo proyecto</ng-container>
+    }
+  </h1>
+
+  @if (error(); as message) {
+    <p class="ag-error" role="alert">{{ message }}</p>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+    <div class="ag-field-ui wide" [class.is-error]="invalid('name')">
+      <label for="name" i18n="@@admin.field.name">Nombre del proyecto</label>
+      <input
+        class="ag-input"
+        id="name"
+        formControlName="name"
+        placeholder="Ej. Hospital Militar Central"
+        i18n-placeholder="@@admin.field.namePlaceholder"
+        [attr.aria-invalid]="invalid('name')"
+      />
+      @if (invalid('name')) {
+        <p class="ag-error" i18n="@@admin.required">Error: este campo es obligatorio.</p>
+      }
+    </div>
+
+    <div class="ag-field-ui wide" [class.is-error]="invalid('purpose')">
+      <label for="purpose" i18n="@@fact.purpose">Objeto</label>
+      <textarea
+        class="ag-textarea"
+        id="purpose"
+        formControlName="purpose"
+        [attr.aria-invalid]="invalid('purpose')"
+      ></textarea>
+      @if (invalid('purpose')) {
+        <p class="ag-error" i18n="@@admin.required">Error: este campo es obligatorio.</p>
+      }
+    </div>
+
+    <div class="ag-field-ui" [class.is-error]="invalid('client')">
+      <label for="client" i18n="@@fact.client">Contratante</label>
+      <input
+        class="ag-input"
+        id="client"
+        formControlName="client"
+        [attr.aria-invalid]="invalid('client')"
+      />
+      @if (invalid('client')) {
+        <p class="ag-error" i18n="@@admin.required">Error: este campo es obligatorio.</p>
+      }
+    </div>
+
+    <div class="ag-field-ui" [class.is-error]="invalid('city')">
+      <label for="city" i18n="@@fact.city">Ciudad</label>
+      <input
+        class="ag-input"
+        id="city"
+        formControlName="city"
+        placeholder="Ej. Medellín - Antioquia"
+        i18n-placeholder="@@admin.field.cityPlaceholder"
+        [attr.aria-invalid]="invalid('city')"
+      />
+      @if (invalid('city')) {
+        <p class="ag-error" i18n="@@admin.required">Error: este campo es obligatorio.</p>
+      }
+    </div>
+
+    <div class="ag-field-ui" [class.is-error]="invalid('areaM2')">
+      <label for="areaM2"
+        ><ng-container i18n="@@admin.field.area">Área (m²)</ng-container>
+        <span class="ag-req" i18n="@@admin.optional">(opcional)</span></label
+      >
+      <input
+        class="ag-input"
+        id="areaM2"
+        type="number"
+        min="0"
+        step="0.01"
+        formControlName="areaM2"
+        [attr.aria-invalid]="invalid('areaM2')"
+      />
+    </div>
+
+    <div class="ag-field-ui" [class.is-error]="invalid('valueSmmlv')">
+      <label for="valueSmmlv"
+        ><ng-container i18n="@@admin.field.value">Valor (SMMLV)</ng-container>
+        <span class="ag-req" i18n="@@admin.optional">(opcional)</span></label
+      >
+      <input
+        class="ag-input"
+        id="valueSmmlv"
+        type="number"
+        min="0"
+        step="0.001"
+        formControlName="valueSmmlv"
+        [attr.aria-invalid]="invalid('valueSmmlv')"
+      />
+    </div>
+
+    <div class="ag-field-ui">
+      <label for="sector" i18n="@@admin.col.sector">Sector</label>
+      <select class="ag-select" id="sector" formControlName="sector">
+        @for (sector of sectors; track sector) {
+          <option [value]="sector">{{ sectorLabels[sector] }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="ag-field-ui">
+      <label for="status" i18n="@@admin.field.status">Estado</label>
+      <select class="ag-select" id="status" formControlName="status">
+        <option value="COMPLETED" i18n="@@status.completed">Terminado</option>
+        <option value="IN_PROGRESS" i18n="@@status.inProgress">En ejecución</option>
+      </select>
+    </div>
+
+    @if (project()) {
+      <label class="ag-check wide">
+        <input type="checkbox" formControlName="published" />
+        <ng-container i18n="@@admin.publishedLabel">Publicado en el sitio</ng-container>
+      </label>
+    }
+
+    <div class="wide">
+      <button type="submit" class="ag-btn ag-btn--primary" [disabled]="busy()" i18n="@@admin.save">
+        Guardar
+      </button>
+    </div>
+  </form>
+
+  @if (project()) {
+    <h2 class="ag-section-title photo-title" i18n="@@admin.photo">Foto</h2>
+    @if (photoUrl(); as url) {
+      <img class="photo" [src]="url" alt="" />
+    } @else {
+      <p class="ag-help" i18n="@@admin.noPhoto">Este proyecto todavía no tiene foto.</p>
+    }
+    <div class="ag-field-ui">
+      <label for="photo" i18n="@@admin.photoInput"
+        >Elegir una foto (JPEG, PNG o WebP, máximo 10 MB)</label
+      >
+      <input
+        id="photo"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        [disabled]="busy()"
+        (change)="replacePhoto($event)"
+      />
+    </div>
+  }
+</section>

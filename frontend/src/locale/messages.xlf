@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es-CO" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="admin.back" datatype="html">
+        <source>Volver a los proyectos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.edit" datatype="html">
+        <source>Editar proyecto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.new" datatype="html">
+        <source>Nuevo proyecto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.field.name" datatype="html">
+        <source>Nombre del proyecto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.field.namePlaceholder" datatype="html">
+        <source>Ej. Hospital Militar Central</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.required" datatype="html">
+        <source>Error: este campo es obligatorio.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">27,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">40,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">53,57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">68,72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fact.purpose" datatype="html">
+        <source>Objeto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fact.client" datatype="html">
+        <source>Contratante</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">45,47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-card/project-card.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fact.city" datatype="html">
+        <source>Ciudad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">58,60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-card/project-card.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.field.cityPlaceholder" datatype="html">
+        <source>Ej. Medellín - Antioquia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.field.area" datatype="html">
+        <source>Área (m²)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.optional" datatype="html">
+        <source>(opcional)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">75,77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">91,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.field.value" datatype="html">
+        <source>Valor (SMMLV)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">90,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.col.sector" datatype="html">
+        <source>Sector</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">105,106</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.field.status" datatype="html">
+        <source>Estado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">114,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="status.completed" datatype="html">
+        <source>Terminado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">116,117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="status.inProgress" datatype="html">
+        <source>En ejecución</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">117,119</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/project-format.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.publishedLabel" datatype="html">
+        <source>Publicado en el sitio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">124,126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.save" datatype="html">
+        <source> Guardar </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">130,132</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.photo" datatype="html">
+        <source>Foto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">136,137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.noPhoto" datatype="html">
+        <source>Este proyecto todavía no tiene foto.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">140,142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.photoInput" datatype="html">
+        <source>Elegir una foto (JPEG, PNG o WebP, máximo 10 MB)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.html</context>
+          <context context-type="linenumber">144,147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.saveError" datatype="html">
+        <source>Error: no se pudo guardar el cambio.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.ts</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.projectLoadError" datatype="html">
+        <source>Error: no se pudo cargar el proyecto.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.ts</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.photoTooLarge" datatype="html">
+        <source>Error: la foto supera 10 MB.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.ts</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.photoType" datatype="html">
+        <source>Error: solo se aceptan fotos JPEG, PNG o WebP.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-form/project-form.ts</context>
+          <context context-type="linenumber">171</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.admin" datatype="html">
+        <source>Administración</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">76,77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">117,120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.logout" datatype="html">
+        <source> Cerrar sesión </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.col.project" datatype="html">
+        <source>Proyecto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.col.published" datatype="html">
+        <source>Publicado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.col.order" datatype="html">
+        <source>Orden</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.col.actions" datatype="html">
+        <source>Acciones</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.publish" datatype="html">
+        <source>Publicar <x id="INTERPOLATION" equiv-text="{{ project.name }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.moveUp" datatype="html">
+        <source>Subir</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.moveDown" datatype="html">
+        <source>Bajar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.delete" datatype="html">
+        <source> Eliminar </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.empty" datatype="html">
+        <source>Todavía no hay proyectos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.html</context>
+          <context context-type="linenumber">84,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.confirmDelete" datatype="html">
+        <source>¿Eliminar «<x id="name" equiv-text="project.name"/>» y su foto?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="admin.loadError" datatype="html">
+        <source>Error: no se pudieron cargar los proyectos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/admin/project-list/project-list.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cta.label" datatype="html">
+        <source>Contacto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/cta-band/cta-band.ts</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cta.text" datatype="html">
+        <source> Esperamos ser partícipes de la construcción de sus sueños y de sus planes estratégicos de crecimiento. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/cta-band/cta-band.ts</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactUs" datatype="html">
+        <source>Contáctanos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/cta-band/cta-band.ts</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">88,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.home" datatype="html">
+        <source>Ir al inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.back" datatype="html">
+        <source> Volver </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.401.title" datatype="html">
+        <source>Sesión requerida</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.401.message" datatype="html">
+        <source>Debe iniciar sesión para ver esta página.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.403.title" datatype="html">
+        <source>Acceso denegado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.403.message" datatype="html">
+        <source>No tiene permiso para ver esta página.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.404.title" datatype="html">
+        <source>Página no encontrada</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.404.message" datatype="html">
+        <source>La página que busca no existe o fue movida.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.generic.title" datatype="html">
+        <source>Error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="error.generic.message" datatype="html">
+        <source>Ocurrió un error inesperado. Intente de nuevo más tarde.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/error-page/error-page.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="hero.title" datatype="html">
+        <source> En convivencia con los espacios naturales </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="hero.lead" datatype="html">
+        <source> Diseño, comercialización y construcción de proyectos arquitectónicos, civiles y urbanísticos en toda Colombia. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="hero.seeProjects" datatype="html">
+        <source>Ver proyectos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">14,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="hero.photoAlt" datatype="html">
+        <source>Vista aérea de un centro de salud construido por Argus Constructores en Bogotá</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home.featured" datatype="html">
+        <source> Proyectos destacados </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="seeAllProjects" datatype="html">
+        <source>Ver todos los proyectos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">59,62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">75,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.username" datatype="html">
+        <source>Usuario</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.password" datatype="html">
+        <source>Contraseña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.submit" datatype="html">
+        <source> Ingresar </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.invalid" datatype="html">
+        <source>Error: usuario o contraseña incorrectos.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.failed" datatype="html">
+        <source>Error: no se pudo iniciar sesión, intente de nuevo.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fact.area" datatype="html">
+        <source>Área</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-card/project-card.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="crumbs.label" datatype="html">
+        <source>Ruta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.home" datatype="html">
+        <source>Inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">65,67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">110,112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.projects" datatype="html">
+        <source>Proyectos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.ts</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">70,72</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">113,115</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fact.value" datatype="html">
+        <source>Valor</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="detail.related" datatype="html">
+        <source> Más proyectos del sector </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="detail.notFound" datatype="html">
+        <source>Proyecto no encontrado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/project-detail/project-detail.html</context>
+          <context context-type="linenumber">73,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.lead" datatype="html">
+        <source> Nuestra experiencia se concentra en centros hospitalarios, educativos y gubernamentales. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.ts</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.empty" datatype="html">
+        <source>Aún no hay proyectos publicados.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.ts</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sector.hospital" datatype="html">
+        <source>Sector hospitalario</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/project.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sector.education" datatype="html">
+        <source>Sector educativo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/project.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sector.institutional" datatype="html">
+        <source>Sector institucional</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/project.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sector.infrastructure" datatype="html">
+        <source>Sector infraestructura</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/project.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sector.housing" datatype="html">
+        <source>Sector vivienda</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/project.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tagline" datatype="html">
+        <source>En convivencia con los espacios naturales</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.services" datatype="html">
+        <source>Servicios</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.consulting" datatype="html">
+        <source>Consultoría</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.construction" datatype="html">
+        <source>Construcción</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="footer.commercialization" datatype="html">
+        <source>Comercialización</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/footer/footer.html</context>
+          <context context-type="linenumber">20,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.label" datatype="html">
+        <source>Principal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.menu" datatype="html">
+        <source>Menú</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.close" datatype="html">
+        <source>Cerrar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -9,11 +9,14 @@ import { AppConfigService } from './app-config.service';
 import { ProjectRequest } from './project';
 
 const request: ProjectRequest = {
-  title: 'Villa',
-  description: 'A house',
-  city: 'Lyon',
-  completionYear: 2024,
-  category: 'RESIDENTIAL',
+  name: 'Hospital Militar Central',
+  purpose: 'Reforzamiento y modernización',
+  client: 'Agencia Logística',
+  areaM2: 19393,
+  valueSmmlv: 34.854,
+  city: 'Bogotá D.C.',
+  sector: 'HOSPITAL',
+  status: 'COMPLETED',
   published: false,
 };
 

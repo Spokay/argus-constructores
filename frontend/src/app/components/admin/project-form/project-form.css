@@ -1,0 +1,29 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  max-width: 800px;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.photo-title {
+  margin-top: var(--space-12);
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: var(--space-6);
+}
+
+@media (max-width: 900px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+}

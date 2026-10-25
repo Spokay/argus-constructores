@@ -1,0 +1,78 @@
+@if (view(); as view) {
+  <nav class="ag-crumbs" aria-label="Ruta" i18n-aria-label="@@crumbs.label">
+    <ol>
+      <li><a routerLink="/" i18n="@@nav.home">Inicio</a></li>
+      <li><a routerLink="/projects" i18n="@@nav.projects">Proyectos</a></li>
+      <li aria-current="page">{{ view.project.name }}</li>
+    </ol>
+  </nav>
+
+  <article class="ag-detail" aria-labelledby="project-title">
+    <div class="ag-detail-photo">
+      @if (coverUrl(view.project); as url) {
+        <img [src]="url" [alt]="view.project.name" />
+      }
+    </div>
+    <div class="ag-detail-panel">
+      <p class="ag-detail-sector">{{ sector() }}</p>
+      <h1 class="ag-detail-title" id="project-title">{{ view.project.name }}</h1>
+      <dl class="ag-facts">
+        <div>
+          <dt i18n="@@fact.purpose">Objeto</dt>
+          <dd>{{ view.project.purpose }}</dd>
+        </div>
+        <div>
+          <dt i18n="@@fact.client">Contratante</dt>
+          <dd>{{ view.project.client }}</dd>
+        </div>
+        @if (view.project.areaM2 !== null) {
+          <div class="is-figure">
+            <dt i18n="@@fact.area">Área</dt>
+            <dd>{{ area(view.project.areaM2) }}</dd>
+          </div>
+        }
+        @if (view.project.valueSmmlv !== null) {
+          <div class="is-figure">
+            <dt i18n="@@fact.value">Valor</dt>
+            <dd>{{ value(view.project.valueSmmlv) }}</dd>
+          </div>
+        }
+        <div>
+          <dt i18n="@@fact.city">Ciudad</dt>
+          <dd>{{ view.project.city }}</dd>
+        </div>
+      </dl>
+      <svg class="ag-detail-corner" viewBox="0 0 240 72" aria-hidden="true">
+        <polygon class="navy" points="40,72 240,10 240,72" />
+        <polygon class="cyan" points="130,72 240,38 240,72" />
+      </svg>
+    </div>
+  </article>
+
+  @if (view.related.length) {
+    <section class="ag-section" aria-labelledby="related-title">
+      <div class="ag-section-head">
+        <h2 class="ag-section-title" id="related-title" i18n="@@detail.related">
+          Más proyectos del sector
+        </h2>
+        <a class="ag-link" routerLink="/projects" i18n="@@seeAllProjects"
+          >Ver todos los proyectos</a
+        >
+      </div>
+      <div class="ag-grid">
+        @for (project of view.related; track project.id) {
+          <app-project-card [project]="project" />
+        }
+      </div>
+    </section>
+  }
+
+  <app-cta-band />
+} @else if (view() === null) {
+  <section class="ag-section">
+    <h1 class="page-title" i18n="@@detail.notFound">Proyecto no encontrado</h1>
+    <a class="ag-btn ag-btn--secondary" routerLink="/projects" i18n="@@seeAllProjects"
+      >Ver todos los proyectos</a
+    >
+  </section>
+}

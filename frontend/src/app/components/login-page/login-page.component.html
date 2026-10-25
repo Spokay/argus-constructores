@@ -1,20 +1,39 @@
-<h2>Administration</h2>
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <label for="username">Username</label>
-  <input id="username" formControlName="username" autocomplete="username" required />
-
-  <label for="password">Password</label>
-  <input
-    id="password"
-    type="password"
-    formControlName="password"
-    autocomplete="current-password"
-    required
-  />
-
-  @if (error(); as message) {
-    <p role="alert" data-testid="login-error">{{ message }}</p>
-  }
-
-  <button type="submit" [disabled]="submitting()">Log in</button>
-</form>
+<section class="ag-section">
+  <h1 class="page-title" i18n="@@nav.admin">Administración</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="ag-field-ui">
+      <label for="username" i18n="@@login.username">Usuario</label>
+      <input
+        class="ag-input"
+        id="username"
+        formControlName="username"
+        autocomplete="username"
+        required
+      />
+    </div>
+    <div class="ag-field-ui">
+      <label for="password" i18n="@@login.password">Contraseña</label>
+      <input
+        class="ag-input"
+        id="password"
+        type="password"
+        formControlName="password"
+        autocomplete="current-password"
+        required
+      />
+    </div>
+    @if (error(); as message) {
+      <p class="ag-error" role="alert" data-testid="login-error">{{ message }}</p>
+    }
+    <div>
+      <button
+        type="submit"
+        class="ag-btn ag-btn--primary"
+        [disabled]="submitting()"
+        i18n="@@login.submit"
+      >
+        Ingresar
+      </button>
+    </div>
+  </form>
+</section>

@@ -7,7 +7,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { AppConfigService } from '@core/app-config.service';
 import { errorHandlingInterceptor } from '@core/error-handling.interceptor';
 import { GlobalErrorHandler } from '@core/global-error-handler';
@@ -39,6 +39,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideAppInitializer(initializeApp),
     provideHttpClient(withInterceptors([authInterceptor, errorHandlingInterceptor])),
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
   ],
 };
