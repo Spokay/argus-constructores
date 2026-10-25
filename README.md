@@ -37,7 +37,7 @@ so the browser stays on one origin.
 ### API on the VPS (once)
 
 1. GitHub repository secrets `REGISTRY_USER` / `REGISTRY_PASSWORD` (registry.spokayhub.top):
-   every push to `main` that passes CI pushes `argus-constructores-api:<sha8>` and `:latest`.
+   pushing a `v*` tag (`git tag v1.0.0 && git push origin v1.0.0`) runs CI and, if it passes, pushes `argus-constructores-api:v1.0.0` and `:latest`. Pushes to `main` only test.
 2. Jenkins credential **`argus-constructores-env`** (*Secret file*, `.env` format):
    `DB_PASSWORD`, `JWT_SECRET` (≥ 32 bytes, `openssl rand -base64 48`), `ADMIN_USERNAME`,
    `ADMIN_PASSWORD`. No `VERSION`: the pipeline sets it.
@@ -47,7 +47,7 @@ so the browser stays on one origin.
    `set $upstream argus-api:8080;`. Allow request bodies of at least 11 MB
    (`client_max_body_size 11m;`) for photo uploads.
 
-Deploy: run `argus-constructores-deploy` with `IMAGE_TAG` = the sha shown in the CI run summary.
+Deploy: run `argus-constructores-deploy` with `IMAGE_TAG` = the git tag (e.g. `v1.0.0`).
 Rollback: same job with the previous tag. The admin account is created on the first start
 only; `ADMIN_PASSWORD` can be removed from the credential afterwards.
 

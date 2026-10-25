@@ -110,8 +110,8 @@ npm run build
   `/es/`, per-locale SPA fallback, `/api/*` rewritten to `https://argus-api.spokayhub.top`).
 - API + PostgreSQL: the VPS, `docker-compose.prod.yaml` + `jenkins/*.Jenkinsfile` from
   `Spokay/deploy-templates` (no published ports, named volumes, secrets from the Jenkins
-  credential `argus-constructores-env`). CI job `image` pushes
-  `registry.spokayhub.top/argus-constructores-api:<sha8>`; deploying is a manual Jenkins run.
+  credential `argus-constructores-env`). CI job `image` runs only on a
+  pushed `v*` tag and pushes `registry.spokayhub.top/argus-constructores-api:<tag>` + `:latest`; deploying is a manual Jenkins run.
 - `LoginThrottle` (5 failures → 15 min lock per username, 429) is in memory: valid only while
   the API runs as one container.
 
