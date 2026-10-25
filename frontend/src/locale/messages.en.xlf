@@ -806,6 +806,14 @@
           <context context-type="linenumber">53,54</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="login.locked" datatype="html">
+        <source>Error: demasiados intentos fallidos. Intente de nuevo en 15 minutos.</source>
+        <target>Error: too many failed attempts. Please try again in 15 minutes.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login-page/login-page.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

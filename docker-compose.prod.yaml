@@ -1,0 +1,55 @@
+# Production on the VPS, deployed by jenkins/deploy.Jenkinsfile (image built by GitHub Actions).
+# Rules from Spokay/deploy-templates: no ports (nginx-ui reaches argus-api on the edge network),
+# named volumes only, secrets from the Jenkins credential argus-constructores-env.
+services:
+  argus-db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: argus
+      POSTGRES_USER: argus
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      # PostgreSQL 18 images keep their data under a versioned subdirectory of this path.
+      - db_data:/var/lib/postgresql
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U argus -d argus"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  argus-api:
+    image: registry.spokayhub.top/argus-constructores-api:${VERSION:-latest}
+    environment:
+      DB_URL: jdbc:postgresql://argus-db:5432/argus
+      DB_USERNAME: argus
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    networks: [internal, default]
+    depends_on:
+      argus-db:
+        condition: service_healthy
+    healthcheck:
+      # Public endpoint that also reaches the database; no extra health endpoint needed.
+      test: ["CMD-SHELL", "wget -qO /dev/null http://localhost:8080/api/projects || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 768M
+    restart: unless-stopped
+
+volumes:
+  db_data:
+
+networks:
+  default:
+    name: edge
+    external: true
+  internal:

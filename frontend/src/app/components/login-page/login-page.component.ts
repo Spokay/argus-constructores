@@ -34,12 +34,15 @@ export class LoginPage {
       next: () => void this.router.navigate(['/admin']),
       error: (error: HttpErrorResponse) => {
         this.submitting.set(false);
-        this.error.set(
-          error.status === 401
-            ? $localize`:@@login.invalid:Error: usuario o contraseña incorrectos.`
-            : $localize`:@@login.failed:Error: no se pudo iniciar sesión, intente de nuevo.`,
-        );
+        this.error.set(loginError(error.status));
       },
     });
   }
+}
+
+function loginError(status: number): string {
+  if (status === 401) return $localize`:@@login.invalid:Error: usuario o contraseña incorrectos.`;
+  if (status === 429)
+    return $localize`:@@login.locked:Error: demasiados intentos fallidos. Intente de nuevo en 15 minutos.`;
+  return $localize`:@@login.failed:Error: no se pudo iniciar sesión, intente de nuevo.`;
 }

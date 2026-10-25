@@ -55,6 +55,19 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.detail").value("Invalid username or password"));
     }
 
+    /** An unknown username on purpose: the lock must not leak into the other tests' admin. */
+    @Test
+    void aUsernameIsLockedAfterFiveFailedLogins() throws Exception {
+        for (int i = 0; i < 5; i++) {
+            mockMvc.perform(login("brute-forced", "guess-" + i)).andExpect(status().isUnauthorized());
+        }
+
+        mockMvc.perform(login("brute-forced", "admin-password"))
+                .andExpect(status().isTooManyRequests())
+                .andExpect(header().exists("Retry-After"))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON));
+    }
+
     @Test
     void meReturnsTheUserBehindTheIssuedToken() throws Exception {
         mockMvc.perform(get("/auth/me").header("Authorization", "Bearer " + adminToken()))

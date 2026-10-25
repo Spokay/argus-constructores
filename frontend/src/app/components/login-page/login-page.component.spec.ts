@@ -54,6 +54,17 @@ describe('LoginPage', () => {
     expect(router.navigate).not.toHaveBeenCalled();
   });
 
+  it('explains a temporary lock after too many failures', () => {
+    authService.login.and.returnValue(throwError(() => new HttpErrorResponse({ status: 429 })));
+
+    submit('admin', 'wrong');
+
+    const alert = (fixture.nativeElement as HTMLElement).querySelector(
+      '[data-testid="login-error"]',
+    );
+    expect(alert?.textContent).toContain('15 minutos');
+  });
+
   it('does not call the server with an empty form', () => {
     submit('', '');
 

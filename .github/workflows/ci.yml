@@ -39,3 +39,26 @@ jobs:
       - run: npm run typecheck
       - run: npm run test:ci
       - run: npm run build
+
+  # Deployment is manual: run the argus-constructores-deploy Jenkins job with the tag printed here.
+  image:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [backend, frontend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: registry.spokayhub.top
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - id: tag
+        run: echo "sha=${GITHUB_SHA::8}" >> "$GITHUB_OUTPUT"
+      - uses: docker/build-push-action@v6
+        with:
+          context: backend
+          push: true
+          tags: |
+            registry.spokayhub.top/argus-constructores-api:${{ steps.tag.outputs.sha }}
+            registry.spokayhub.top/argus-constructores-api:latest
+      - run: echo "Pushed argus-constructores-api:${{ steps.tag.outputs.sha }} — deploy it with IMAGE_TAG=${{ steps.tag.outputs.sha }}" >> "$GITHUB_STEP_SUMMARY"

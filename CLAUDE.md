@@ -104,6 +104,17 @@ npm run build
   `application-test.properties` supplies the JWT secret and seeded admin (`admin` / `admin-password`).
 - Frontend component specs use `provideTestingEnvironment()` (`src/testing/test-providers.ts`).
 
+## Deployment
+
+- Frontend: Vercel, project root `frontend/`, config in `frontend/vercel.json` (redirect `/` →
+  `/es/`, per-locale SPA fallback, `/api/*` rewritten to `https://argus-api.spokayhub.top`).
+- API + PostgreSQL: the VPS, `docker-compose.prod.yaml` + `jenkins/*.Jenkinsfile` from
+  `Spokay/deploy-templates` (no published ports, named volumes, secrets from the Jenkins
+  credential `argus-constructores-env`). CI job `image` pushes
+  `registry.spokayhub.top/argus-constructores-api:<sha8>`; deploying is a manual Jenkins run.
+- `LoginThrottle` (5 failures → 15 min lock per username, 429) is in memory: valid only while
+  the API runs as one container.
+
 ## Repo notes
 
 - CI: `.github/workflows/ci.yml` at the root, one job per subproject (backend `./mvnw verify`
