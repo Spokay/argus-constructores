@@ -1,0 +1,20 @@
+<h2>Administration</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="username">Username</label>
+  <input id="username" formControlName="username" autocomplete="username" required />
+
+  <label for="password">Password</label>
+  <input
+    id="password"
+    type="password"
+    formControlName="password"
+    autocomplete="current-password"
+    required
+  />
+
+  @if (error(); as message) {
+    <p role="alert" data-testid="login-error">{{ message }}</p>
+  }
+
+  <button type="submit" [disabled]="submitting()">Log in</button>
+</form>

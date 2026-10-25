@@ -1,0 +1,15 @@
+<header>
+  <div class="container">
+    <div class="logo">
+      <h1><a routerLink="/">Argus Constructores</a></h1>
+    </div>
+
+    <nav class="auth-controls">
+      @if (isAuthenticated()) {
+        <a routerLink="/admin">Administration</a>
+        <span class="user-name">{{ username() }}</span>
+        <button class="btn btn-logout" (click)="logout()">Logout</button>
+      }
+    </nav>
+  </div>
+</header>
