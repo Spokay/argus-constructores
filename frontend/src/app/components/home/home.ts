@@ -10,6 +10,7 @@ import { ProjectService } from '@core/project.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.html',
+  styleUrl: 'home.css',
   imports: [RouterLink, ProjectCard, CtaBand],
 })
 export class Home {
