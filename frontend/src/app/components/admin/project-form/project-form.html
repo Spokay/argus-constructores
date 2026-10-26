@@ -83,6 +83,11 @@
         formControlName="areaM2"
         [attr.aria-invalid]="invalid('areaM2')"
       />
+      @if (invalid('areaM2')) {
+        <p class="ag-error" i18n="@@admin.areaFormat">
+          Error: número positivo, máximo 2 decimales, sin separador de miles.
+        </p>
+      }
     </div>
 
     <div class="ag-field-ui" [class.is-error]="invalid('valueSmmlv')">
@@ -99,6 +104,11 @@
         formControlName="valueSmmlv"
         [attr.aria-invalid]="invalid('valueSmmlv')"
       />
+      @if (invalid('valueSmmlv')) {
+        <p class="ag-error" i18n="@@admin.valueFormat">
+          Error: número positivo, máximo 3 decimales, sin separador de miles.
+        </p>
+      }
     </div>
 
     <div class="ag-field-ui">

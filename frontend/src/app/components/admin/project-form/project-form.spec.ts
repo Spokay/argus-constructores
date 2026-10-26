@@ -64,6 +64,17 @@ describe('ProjectForm', () => {
     expect(service.create).not.toHaveBeenCalled();
   });
 
+  it('refuses an area written with a thousands dot instead of sending it', () => {
+    const fixture = TestBed.createComponent(ProjectForm);
+    fixture.detectChanges();
+    fixture.componentInstance.form.setValue({ ...requestOf(aProject()), areaM2: 19.393 });
+
+    fixture.componentInstance.save();
+
+    expect(service.create).not.toHaveBeenCalled();
+    expect(fixture.componentInstance.form.controls.areaM2.hasError('maxDecimals')).toBeTrue();
+  });
+
   it('uploads the new photo before removing the previous one', () => {
     service.find.and.returnValue(of(aProject({ id: 1, imageIds: [10] })));
     service.uploadImage.and.returnValue(of({ id: 11 }));

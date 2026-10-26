@@ -1,6 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, DestroyRef, OnInit, inject, input, signal } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  NonNullableFormBuilder,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AdminProjectService } from '@core/admin-project.service';
 import {
@@ -33,8 +40,9 @@ export class ProjectForm implements OnInit {
     name: ['', [Validators.required, Validators.maxLength(200)]],
     purpose: ['', Validators.required],
     client: ['', [Validators.required, Validators.maxLength(200)]],
-    areaM2: [null as number | null, Validators.min(0)],
-    valueSmmlv: [null as number | null, Validators.min(0)],
+    // Same scale as the API's @Digits: a Colombian thousands dot (19.393) is caught here, not as a 400.
+    areaM2: [null as number | null, [Validators.min(0), maxDecimals(2)]],
+    valueSmmlv: [null as number | null, [Validators.min(0), maxDecimals(3)]],
     city: ['', [Validators.required, Validators.maxLength(100)]],
     sector: ['HOSPITAL' as Sector, Validators.required],
     status: ['COMPLETED' as ProjectStatus, Validators.required],
@@ -163,6 +171,13 @@ export class ProjectForm implements OnInit {
     if (url) URL.revokeObjectURL(url);
     this.photoUrl.set(null);
   }
+}
+
+export function maxDecimals(digits: number): ValidatorFn {
+  return (control: AbstractControl<number | null>): ValidationErrors | null => {
+    const decimals = String(control.value ?? '').split('.')[1]?.length ?? 0;
+    return decimals > digits ? { maxDecimals: digits } : null;
+  };
 }
 
 function photoError(error: HttpErrorResponse): string {

@@ -46,6 +46,14 @@
           <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="admin.areaFormat" datatype="html">
+        <source> Error: número positivo, máximo 2 decimales, sin separador de miles. </source>
+        <target>Error: positive number, at most 2 decimals, no thousands separator.</target>
+      </trans-unit>
+      <trans-unit id="admin.valueFormat" datatype="html">
+        <source> Error: número positivo, máximo 3 decimales, sin separador de miles. </source>
+        <target>Error: positive number, at most 3 decimals, no thousands separator.</target>
+      </trans-unit>
       <trans-unit id="admin.required" datatype="html">
         <source>Error: este campo es obligatorio.</source>
         <target>Error: this field is required.</target>
