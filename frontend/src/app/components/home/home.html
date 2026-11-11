@@ -24,11 +24,13 @@
       alt="Vista aérea de un centro de salud construido por Argus Constructores en Bogotá"
       i18n-alt="@@hero.photoAlt"
     />
+    <!-- [muted], not the muted attribute: the attribute only mutes a parsed <video>, not one
+         Angular creates, and browsers block the autoplay of an unmuted one. -->
     <video
       class="hero-video"
       src="assets/brand/hero.mp4"
       autoplay
-      muted
+      [muted]="true"
       loop
       playsinline
       aria-hidden="true"

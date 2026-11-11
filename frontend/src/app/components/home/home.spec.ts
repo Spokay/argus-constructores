@@ -22,4 +22,10 @@ describe('Home', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('mutes the hero video, which browsers require to autoplay it', () => {
+    const video = (fixture.nativeElement as HTMLElement).querySelector('video')!;
+
+    expect(video.muted).toBeTrue();
+  });
 });
