@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from '@auth/auth.guard';
+import { About } from '@components/about/about';
 import { ProjectForm } from '@components/admin/project-form/project-form';
 import { ProjectList } from '@components/admin/project-list/project-list';
 import { ErrorPage } from '@components/error-page/error-page';
@@ -12,6 +13,7 @@ export const routes: Routes = [
   { path: '', component: Home, pathMatch: 'full' },
   { path: 'projects', component: Projects },
   { path: 'projects/:id', component: ProjectDetail },
+  { path: 'about', component: About },
   { path: 'login', component: LoginPage },
   {
     path: 'admin',

@@ -822,6 +822,154 @@
           <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.about" datatype="html">
+        <source>Nosotros</source>
+        <target>About us</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">75,77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">121,123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.title" datatype="html">
+        <source>Nuestra misión</source>
+        <target>Our mission</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.intro" datatype="html">
+        <source> Argus Constructores sintetiza la experiencia de un gran grupo de profesionales en el campo de la arquitectura y de la ingeniería civil adquirida en el diseño y construcción de grandes edificaciones en Colombia. </source>
+        <target>Argus Constructores brings together the experience of a large group of architecture and civil engineering professionals, gained in the design and construction of major buildings in Colombia.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">5,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.stagesTitle" datatype="html">
+        <source> De la idea a la puesta en servicio </source>
+        <target>From the idea to commissioning</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.stages" datatype="html">
+        <source> Esta experiencia, adquirida mediante la construcción de múltiples edificaciones en todo el país, determinó una organización con capacidad de desarrollar los mayores y mejores retos desde el estudio de prefactibilidad, el diseño, construcción y puesta en servicio de instituciones. </source>
+        <target>This experience, gained through the construction of many buildings across the country, shaped an organisation able to take on the biggest and best challenges, from the pre-feasibility study through design and construction to the commissioning of institutions.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">24,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.step.feasibility" datatype="html">
+        <source>Estudio de prefactibilidad</source>
+        <target>Pre-feasibility study</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.step.design" datatype="html">
+        <source>Diseño</source>
+        <target>Design</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.step.construction" datatype="html">
+        <source>Construcción</source>
+        <target>Construction</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.step.commissioning" datatype="html">
+        <source>Puesta en servicio</source>
+        <target>Commissioning</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">33,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.experienceTitle" datatype="html">
+        <source> Nuestra experiencia </source>
+        <target>Our experience</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.experience" datatype="html">
+        <source> Nuestra experiencia se concentra en centros hospitalarios, educativos, gubernamentales, comerciales, residenciales, proyectos viales, de infraestructura y demás campos propios de la ingeniería civil y la arquitectura. </source>
+        <target>Our experience focuses on hospitals, schools, government buildings, commercial and residential projects, roads, infrastructure and the other fields of civil engineering and architecture.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">44,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.health" datatype="html">
+        <source>Centros hospitalarios</source>
+        <target>Hospitals</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.education" datatype="html">
+        <source>Centros educativos</source>
+        <target>Schools</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.government" datatype="html">
+        <source>Instituciones gubernamentales</source>
+        <target>Government institutions</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.commercial" datatype="html">
+        <source>Proyectos comerciales</source>
+        <target>Commercial projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.residential" datatype="html">
+        <source>Proyectos residenciales</source>
+        <target>Residential projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.roads" datatype="html">
+        <source>Proyectos viales</source>
+        <target>Road projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="about.sector.infrastructure" datatype="html">
+        <source>Infraestructura</source>
+        <target>Infrastructure</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about/about.html</context>
+          <context context-type="linenumber">56,60</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,85 @@
+.about-intro,
+.about-experience {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.about-stages {
+  background: var(--surface);
+}
+
+.about-text {
+  margin: var(--space-6) 0 0;
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--ink-muted);
+}
+
+.about-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-9);
+  margin: var(--space-12) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.about-steps li {
+  counter-increment: step;
+  padding-top: var(--space-4);
+  border-top: var(--border-thin) solid var(--accent-text);
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.about-steps li::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: 48px;
+  line-height: 48px;
+  color: var(--accent-text);
+}
+
+/* `.ag-services` styles a nested list; here the panel is the list itself. */
+.about-sectors {
+  margin: 0;
+  padding: var(--space-9);
+  list-style: none;
+}
+
+.about-sectors li {
+  padding: var(--space-3) 0;
+  border-top: var(--border-thin) solid #ffffff2e;
+  font-weight: 700;
+}
+
+.about-sectors li:first-child {
+  border-top: none;
+}
+
+@media (max-width: 900px) {
+  .about-intro,
+  .about-experience {
+    grid-template-columns: 1fr;
+  }
+
+  .about-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

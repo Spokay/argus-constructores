@@ -66,6 +66,11 @@
           </a>
         </li>
         <li>
+          <a routerLink="/about" routerLinkActive ariaCurrentWhenActive="page">
+            <span i18n="@@nav.about">Nosotros</span>
+          </a>
+        </li>
+        <li>
           <a routerLink="/projects" routerLinkActive ariaCurrentWhenActive="page">
             <span i18n="@@nav.projects">Proyectos</span>
           </a>
@@ -108,6 +113,9 @@
     [routerLinkActiveOptions]="{ exact: true }"
     i18n="@@nav.home"
     >Inicio</a
+  >
+  <a routerLink="/about" routerLinkActive ariaCurrentWhenActive="page" i18n="@@nav.about"
+    >Nosotros</a
   >
   <a routerLink="/projects" routerLinkActive ariaCurrentWhenActive="page" i18n="@@nav.projects"
     >Proyectos</a
