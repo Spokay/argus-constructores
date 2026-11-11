@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  background: var(--surface-alt);
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-9);
+  margin-top: var(--space-9);
+}
+
+/* Same cyan rule and League Gothic title as the stages of the "Nosotros" section; the rule is a
+   pseudo-element so it can grow in during the reveal. */
+.service {
+  position: relative;
+  padding-top: var(--space-4);
+}
+
+.service::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--border-thin);
+  background: var(--accent-fill);
+  transform-origin: left;
+}
+
+.service-title {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.service-group {
+  margin: var(--space-6) 0 var(--space-2);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.service-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-items li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding: var(--space-1) 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Square bullet: the brand has no rounded shapes. */
+.service-items li::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-fill);
+  transform: translateY(-3px);
+}
+
+/* Reveal: columns slide up (side by side: one after the other), the cyan rule grows, then the items
+   follow one by one. Hidden only for visitors who accept motion; others see the section as is. */
+@media (prefers-reduced-motion: no-preference) {
+  .service,
+  .service-group,
+  .service-items li {
+    transition:
+      opacity 600ms ease-out,
+      transform 600ms ease-out;
+  }
+
+  .service {
+    transition-delay: calc(var(--column) * 150ms);
+  }
+
+  .service::before {
+    transition: transform 800ms ease-out calc(var(--column) * 150ms + 200ms);
+  }
+
+  .service-group {
+    transition-delay: calc(var(--column) * 150ms + 300ms);
+  }
+
+  .service-items li {
+    transition-duration: 400ms;
+    transition-delay: calc(var(--column) * 150ms + 300ms + var(--rank) * 60ms);
+  }
+
+  .service:not(.is-revealed) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .service:not(.is-revealed)::before {
+    transform: scaleX(0);
+  }
+
+  .service:not(.is-revealed) .service-group,
+  .service:not(.is-revealed) .service-items li {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 900px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stacked: each column is revealed on its own, no need to wait for the previous one. */
+  .service {
+    --column: 0 !important;
+  }
+}

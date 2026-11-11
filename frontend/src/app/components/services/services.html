@@ -1,0 +1,24 @@
+<section class="ag-section" aria-labelledby="services-title">
+  <h2 class="ag-section-title" id="services-title" i18n="@@nav.services">Servicios</h2>
+  <div class="services">
+    @for (service of services; track service.title) {
+      <article
+        class="service"
+        [class.is-revealed]="revealed().has($index)"
+        [style.--column]="$index"
+      >
+        <h3 class="service-title">{{ service.title }}</h3>
+        @for (group of service.groups; track $index) {
+          @if (group.title) {
+            <h4 class="service-group">{{ group.title }}</h4>
+          }
+          <ul class="service-items">
+            @for (item of group.items; track item.rank) {
+              <li [style.--rank]="item.rank">{{ item.text }}</li>
+            }
+          </ul>
+        }
+      </article>
+    }
+  </div>
+</section>

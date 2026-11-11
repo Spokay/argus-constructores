@@ -7,7 +7,12 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withInMemoryScrolling,
+  withRouterConfig,
+} from '@angular/router';
 import { AppConfigService } from '@core/app-config.service';
 import { errorHandlingInterceptor } from '@core/error-handling.interceptor';
 import { GlobalErrorHandler } from '@core/global-error-handler';
@@ -39,6 +44,13 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideAppInitializer(initializeApp),
     provideHttpClient(withInterceptors([authInterceptor, errorHandlingInterceptor])),
-    provideRouter(routes, withComponentInputBinding()),
+    provideRouter(
+      routes,
+      withComponentInputBinding(),
+      // Scrolls to #fragment (header anchors) and back to where the visitor was on Back.
+      withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
+      // Clicking the anchor of the current URL again still scrolls to it.
+      withRouterConfig({ onSameUrlNavigation: 'reload' }),
+    ),
   ],
 };

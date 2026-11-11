@@ -9,7 +9,11 @@
     </p>
     <div class="ag-hero-actions">
       <a class="ag-btn ag-btn--on-dark" [href]="mailto" i18n="@@contactUs">Contáctanos</a>
-      <a class="ag-btn ag-btn--secondary" routerLink="/projects" i18n="@@hero.seeProjects"
+      <a
+        class="ag-btn ag-btn--secondary"
+        routerLink="/"
+        fragment="projects"
+        i18n="@@hero.seeProjects"
         >Ver proyectos</a
       >
     </div>
@@ -36,20 +40,10 @@
   </svg>
 </section>
 
-@if (featured().length) {
-  <section class="ag-section" aria-labelledby="featured-title">
-    <div class="ag-section-head">
-      <h2 class="ag-section-title" id="featured-title" i18n="@@home.featured">
-        Proyectos destacados
-      </h2>
-      <a class="ag-link" routerLink="/projects" i18n="@@seeAllProjects">Ver todos los proyectos</a>
-    </div>
-    <div class="ag-grid">
-      @for (project of featured(); track project.id) {
-        <app-project-card [project]="project" />
-      }
-    </div>
-  </section>
-}
+<app-about />
+
+<app-services />
+
+<app-projects (loaded)="realignFragment()" />
 
 <app-cta-band />

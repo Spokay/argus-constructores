@@ -1,3 +1,25 @@
+/* Sticky on the host: the <header> inside it would only stick within the host's own box. */
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: block;
+}
+
+/* Section in view (scroll-spy) gets the design system's current-page marks. */
+.ag-nav a[aria-current='location'] {
+  border-bottom-color: var(--accent-fill);
+}
+
+.ag-menu-links a[aria-current='location'] {
+  color: var(--accent-text);
+}
+
+.ag-menu-links a[aria-current='location'] span {
+  border-bottom: var(--nav-indicator) solid var(--accent-fill);
+  padding-bottom: 2px;
+}
+
 .lang {
   position: relative;
 }

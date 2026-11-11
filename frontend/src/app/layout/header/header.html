@@ -73,22 +73,22 @@
     <nav aria-label="Principal" i18n-aria-label="@@nav.label">
       <ul class="ag-menu-links">
         <li>
-          <a
-            routerLink="/"
-            routerLinkActive
-            ariaCurrentWhenActive="page"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
+          <a routerLink="/" [attr.aria-current]="currentFor(null)">
             <span i18n="@@nav.home">Inicio</span>
           </a>
         </li>
         <li>
-          <a routerLink="/about" routerLinkActive ariaCurrentWhenActive="page">
+          <a routerLink="/" fragment="about" [attr.aria-current]="currentFor('about')">
             <span i18n="@@nav.about">Nosotros</span>
           </a>
         </li>
         <li>
-          <a routerLink="/projects" routerLinkActive ariaCurrentWhenActive="page">
+          <a routerLink="/" fragment="services" [attr.aria-current]="currentFor('services')">
+            <span i18n="@@nav.services">Servicios</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/" fragment="projects" [attr.aria-current]="currentFor('projects')">
             <span i18n="@@nav.projects">Proyectos</span>
           </a>
         </li>
@@ -139,18 +139,22 @@
 }
 
 <ng-template #links>
-  <a
-    routerLink="/"
-    routerLinkActive
-    ariaCurrentWhenActive="page"
-    [routerLinkActiveOptions]="{ exact: true }"
-    i18n="@@nav.home"
-    >Inicio</a
-  >
-  <a routerLink="/about" routerLinkActive ariaCurrentWhenActive="page" i18n="@@nav.about"
+  <a routerLink="/" [attr.aria-current]="currentFor(null)" i18n="@@nav.home">Inicio</a>
+  <a routerLink="/" fragment="about" [attr.aria-current]="currentFor('about')" i18n="@@nav.about"
     >Nosotros</a
   >
-  <a routerLink="/projects" routerLinkActive ariaCurrentWhenActive="page" i18n="@@nav.projects"
+  <a
+    routerLink="/"
+    fragment="services"
+    [attr.aria-current]="currentFor('services')"
+    i18n="@@nav.services"
+    >Servicios</a
+  >
+  <a
+    routerLink="/"
+    fragment="projects"
+    [attr.aria-current]="currentFor('projects')"
+    i18n="@@nav.projects"
     >Proyectos</a
   >
   @if (isAuthenticated()) {

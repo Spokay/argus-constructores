@@ -1,12 +1,28 @@
-import { NgTemplateOutlet } from '@angular/common';
-import { Component, ElementRef, LOCALE_ID, inject, signal, viewChild } from '@angular/core';
+import { NgTemplateOutlet, ViewportScroller } from '@angular/common';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  Injector,
+  LOCALE_ID,
+  afterNextRender,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@auth/auth.service';
 import { CONTACT } from '@core/contact';
 import { filter } from 'rxjs';
 
+/** The home page sections the menu links to, by element id. */
+const SECTIONS = ['about', 'services', 'projects'] as const;
+type Section = (typeof SECTIONS)[number];
+
 /**
- * Design system SiteHeader + MobileMenu. Below 900px the CSS swaps the navigation for the
+ * Design system SiteHeader + MobileMenu, sticky. Its links are anchors to the home page sections;
+ * the one in view is marked as the current location (scroll-spy).
+ * Below 900px the CSS swaps the navigation for the
  * “Menú” button; the panel is a modal dialog, so focus is moved in, kept in and given back.
  */
 @Component({
@@ -22,12 +38,16 @@ import { filter } from 'rxjs';
 export class Header {
   private readonly router = inject(Router);
   private readonly locale = inject(LOCALE_ID);
+  private readonly injector = inject(Injector);
+  private sectionObserver?: IntersectionObserver;
 
   readonly isAuthenticated = inject(AuthService).isAuthenticated;
   readonly contact = CONTACT;
   readonly mailto = `mailto:${CONTACT.email}`;
   readonly menuOpen = signal(false);
   readonly languagesOpen = signal(false);
+  /** Section in view on the home page, `null` at the top (Hero), `undefined` on other pages. */
+  readonly activeSection = signal<Section | null | undefined>(undefined);
 
   /** Each locale is its own build under /es/ or /en/: switching is a full page load. */
   readonly languages = [
@@ -40,9 +60,20 @@ export class Header {
   private readonly menuPanel = viewChild<ElementRef<HTMLElement>>('menuPanel');
 
   constructor() {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => this.closeMenu());
+    const host = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
+    // Anchors must land below the sticky header, not under it.
+    inject(ViewportScroller).setOffset(() => [0, host.offsetHeight]);
+
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      this.closeMenu();
+      this.watchSections();
+    });
+    inject(DestroyRef).onDestroy(() => this.sectionObserver?.disconnect());
+  }
+
+  /** `aria-current` of a menu link: `location` when its section is the one in view. */
+  currentFor(section: Section | null): 'location' | null {
+    return this.activeSection() === section ? 'location' : null;
   }
 
   languageHref(subPath: string): string {
@@ -80,6 +111,35 @@ export class Header {
       first.focus();
       event.preventDefault();
     }
+  }
+
+  private watchSections(): void {
+    this.sectionObserver?.disconnect();
+    const onHome = !this.router.parseUrl(this.router.url).root.hasChildren();
+    this.activeSection.set(onHome ? null : undefined);
+    if (!onHome) return;
+
+    // The section crossing the middle of the viewport is the current one.
+    this.sectionObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const section = entry.target.id as Section;
+          if (entry.isIntersecting) this.activeSection.set(section);
+          else if (this.activeSection() === section) this.activeSection.set(null);
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px' },
+    );
+    const observer = this.sectionObserver;
+    // NavigationEnd comes before the page renders: wait for its sections to exist.
+    afterNextRender(
+      () =>
+        SECTIONS.forEach((id) => {
+          const element = document.getElementById(id);
+          if (element) observer.observe(element);
+        }),
+      { injector: this.injector },
+    );
   }
 
   private focusables(): HTMLElement[] {

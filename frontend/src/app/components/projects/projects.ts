@@ -1,15 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { CtaBand } from '@components/cta-band/cta-band';
 import { ProjectCard } from '@components/project-card/project-card';
 import { ProjectService } from '@core/project.service';
+import { tap } from 'rxjs';
 
-/** Every published project, in the admin's order. */
+/** Home section “Proyectos”: every published project, in the admin's order. */
 @Component({
   selector: 'app-projects',
   template: `
-    <section class="ag-section">
-      <h1 class="page-title" i18n="@@nav.projects">Proyectos</h1>
+    <section class="ag-section" id="projects">
+      <h2 class="page-title" i18n="@@nav.projects">Proyectos</h2>
       <p class="page-lead" i18n="@@projects.lead">
         Nuestra experiencia se concentra en centros hospitalarios, educativos y gubernamentales.
       </p>
@@ -23,10 +23,15 @@ import { ProjectService } from '@core/project.service';
         </div>
       }
     </section>
-    <app-cta-band />
   `,
-  imports: [ProjectCard, CtaBand],
+  imports: [ProjectCard],
 })
 export class Projects {
-  readonly projects = toSignal(inject(ProjectService).list());
+  /** Emitted once the list has arrived: it changes the height of everything below it. */
+  readonly loaded = output();
+  readonly projects = toSignal(
+    inject(ProjectService)
+      .list()
+      .pipe(tap(() => this.loaded.emit())),
+  );
 }

@@ -42,6 +42,34 @@ describe('Header', () => {
     expect(document.body.style.overflow).toBe('');
   });
 
+  it('links the menu to the home page sections, marking Inicio at the top of the home page', async () => {
+    const { fixture, element } = render();
+    await TestBed.inject(Router).navigateByUrl('/');
+    fixture.detectChanges();
+
+    const links = Array.from(element.querySelectorAll<HTMLAnchorElement>('.ag-nav a'));
+    expect(links.map((link) => link.getAttribute('href'))).toEqual([
+      '/',
+      '/#about',
+      '/#services',
+      '/#projects',
+    ]);
+    expect(links.map((link) => link.getAttribute('aria-current'))).toEqual([
+      'location',
+      null,
+      null,
+      null,
+    ]);
+  });
+
+  it('marks no section outside the home page', async () => {
+    const { fixture, element } = render();
+    await TestBed.inject(Router).navigateByUrl('/projects');
+    fixture.detectChanges();
+
+    expect(element.querySelector('.ag-nav a[aria-current]')).toBeNull();
+  });
+
   it('lists both languages, linking to the same page, once the language button is clicked', async () => {
     const { fixture, element } = render();
     await TestBed.inject(Router).navigateByUrl('/projects');

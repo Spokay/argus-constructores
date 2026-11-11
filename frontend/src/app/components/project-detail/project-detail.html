@@ -2,7 +2,7 @@
   <nav class="ag-crumbs" aria-label="Ruta" i18n-aria-label="@@crumbs.label">
     <ol>
       <li><a routerLink="/" i18n="@@nav.home">Inicio</a></li>
-      <li><a routerLink="/projects" i18n="@@nav.projects">Proyectos</a></li>
+      <li><a routerLink="/" fragment="projects" i18n="@@nav.projects">Proyectos</a></li>
       <li aria-current="page">{{ view.project.name }}</li>
     </ol>
   </nav>
@@ -55,7 +55,7 @@
         <h2 class="ag-section-title" id="related-title" i18n="@@detail.related">
           Más proyectos del sector
         </h2>
-        <a class="ag-link" routerLink="/projects" i18n="@@seeAllProjects"
+        <a class="ag-link" routerLink="/" fragment="projects" i18n="@@seeAllProjects"
           >Ver todos los proyectos</a
         >
       </div>
@@ -71,7 +71,7 @@
 } @else if (view() === null) {
   <section class="ag-section">
     <h1 class="page-title" i18n="@@detail.notFound">Proyecto no encontrado</h1>
-    <a class="ag-btn ag-btn--secondary" routerLink="/projects" i18n="@@seeAllProjects"
+    <a class="ag-btn ag-btn--secondary" routerLink="/" fragment="projects" i18n="@@seeAllProjects"
       >Ver todos los proyectos</a
     >
   </section>
