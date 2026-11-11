@@ -8,6 +8,7 @@ import { ProjectService } from '@core/project.service';
 @Component({
   selector: 'app-project-card',
   templateUrl: 'project-card.html',
+  styleUrl: 'project-card.css',
   imports: [RouterLink],
   host: { style: 'display: contents' },
 })

@@ -6,7 +6,7 @@
   </div>
   <div class="ag-card-body">
     <p class="ag-card-sector">{{ sector() }}</p>
-    <h3 class="ag-card-title">{{ project().name }}</h3>
+    <h3 class="ag-card-title" [attr.title]="project().name">{{ project().name }}</h3>
     <dl class="ag-card-meta">
       <dt i18n="@@fact.city">Ciudad</dt>
       <dd>{{ project().city }}</dd>

@@ -1,0 +1,10 @@
+/* Always two lines tall, so cards side by side line up; longer names end with "…" (the full name
+   stays in the text for screen readers and in the tooltip). 26px = the design system's line height. */
+.ag-card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2 * 26px);
+}

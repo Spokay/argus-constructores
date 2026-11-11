@@ -26,6 +26,13 @@ describe('ProjectCard', () => {
     expect(card.querySelector('.ag-card-meta')?.textContent).toContain('m²');
   });
 
+  it('keeps the full name in a tooltip, the title being cut after two lines', () => {
+    const name = 'Construcción de la nueva sede del hospital regional con ampliación de urgencias';
+    const card = render(aProject({ name }));
+
+    expect(card.querySelector('.ag-card-title')?.getAttribute('title')).toBe(name);
+  });
+
   it('shows the client when there is no area yet', () => {
     const card = render(aProject({ areaM2: null, imageIds: [] }));
 
