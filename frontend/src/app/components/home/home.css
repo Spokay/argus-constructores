@@ -7,6 +7,8 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Decorative: no hover, so browsers show none of their video overlays (Edge's pop-out…). */
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
