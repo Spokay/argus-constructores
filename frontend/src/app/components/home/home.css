@@ -14,3 +14,15 @@
     display: none;
   }
 }
+
+/* Quotes drawn in CSS around the title, at its size, so the translated title stays plain text;
+   the empty alt text keeps screen readers from announcing them. */
+.ag-hero-title::before {
+  content: '“' / '';
+  color: var(--accent-text);
+}
+
+.ag-hero-title::after {
+  content: '”' / '';
+  color: var(--accent-text);
+}
