@@ -42,12 +42,35 @@ describe('Header', () => {
     expect(document.body.style.overflow).toBe('');
   });
 
-  it('links to the same page in the other language', async () => {
+  it('lists both languages, linking to the same page, once the language button is clicked', async () => {
     const { fixture, element } = render();
     await TestBed.inject(Router).navigateByUrl('/projects');
+    element.querySelector<HTMLButtonElement>('.ag-header-inner .lang-toggle')!.click();
     fixture.detectChanges();
 
-    const switcher = element.querySelector<HTMLAnchorElement>('.ag-nav a[lang]');
-    expect(switcher?.getAttribute('href')).toBe('/es/projects');
+    const links = Array.from(element.querySelectorAll<HTMLAnchorElement>('.lang-list a'));
+    expect(links.map((link) => link.getAttribute('href'))).toEqual([
+      '/es/projects',
+      '/en/projects',
+    ]);
+    // Tests run with Angular's default LOCALE_ID, en-US.
+    expect(links.map((link) => link.getAttribute('aria-current'))).toEqual([null, 'true']);
+  });
+
+  it('closes the language list on Escape and on a click outside it', () => {
+    const { fixture, element } = render();
+    const toggle = element.querySelector<HTMLButtonElement>('.ag-header-inner .lang-toggle')!;
+
+    toggle.click();
+    fixture.detectChanges();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    fixture.detectChanges();
+    expect(element.querySelector('.lang-list')).toBeNull();
+
+    toggle.click();
+    fixture.detectChanges();
+    document.body.click();
+    fixture.detectChanges();
+    expect(element.querySelector('.lang-list')).toBeNull();
   });
 });

@@ -1,0 +1,129 @@
+.lang {
+  position: relative;
+}
+
+/* Below 900px the design system swaps the header for the "Menú" button; the menu has its own. */
+@media (max-width: 900px) {
+  .ag-header-inner > .lang {
+    display: none;
+  }
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  background: none;
+  border: none;
+  border-bottom: var(--nav-indicator) solid transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-toggle:hover {
+  border-bottom-color: var(--field-border);
+}
+
+.lang-toggle:focus-visible {
+  outline: var(--border-strong) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Caret, turned up while the list is open. */
+.lang-toggle::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: var(--space-1);
+  border-right: var(--border-strong) solid currentColor;
+  border-bottom: var(--border-strong) solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.lang-toggle[aria-expanded='true']::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+/* White parts of the flags would vanish on a white header without the outline. */
+.flag {
+  width: 21px;
+  height: 14px;
+  object-fit: cover;
+  outline: var(--border-thin) solid var(--field-border);
+}
+
+.lang-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
+  min-width: 160px;
+  margin: var(--space-1) 0 0;
+  padding: var(--space-2) 0;
+  list-style: none;
+  background: var(--surface);
+  border: var(--border-thin) solid var(--field-border);
+}
+
+.lang-list a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: none;
+}
+
+.lang-list a:hover,
+.lang-list a[aria-current='true'] {
+  color: var(--accent-text);
+}
+
+/* Mobile menu: the toggle looks like the other menu links. */
+.ag-menu .lang-toggle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 64px;
+  padding: 0;
+  border-bottom: none;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.ag-menu .lang-toggle::after {
+  margin-right: var(--space-2);
+}
+
+.ag-menu .lang-toggle .flag {
+  margin-left: auto;
+}
+
+.lang-sublist {
+  margin: 0 0 var(--space-4);
+  padding: 0 0 0 var(--space-6);
+  list-style: none;
+}
+
+.lang-sublist li:last-child {
+  border-bottom: none;
+}
+
+.lang-sublist a {
+  justify-content: flex-start;
+  gap: var(--space-3);
+  min-height: 48px;
+  font-size: 20px;
+}
+
+.lang-sublist a::after {
+  display: none;
+}
+
+.lang-sublist a[aria-current='true'] {
+  color: var(--accent-text);
+}

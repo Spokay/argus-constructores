@@ -6,11 +6,28 @@
     </a>
     <nav class="ag-nav" aria-label="Principal" i18n-aria-label="@@nav.label">
       <ng-container *ngTemplateOutlet="links" />
-      <a [href]="languageHref()" [attr.lang]="otherLanguage.lang">{{ otherLanguage.label }}</a>
     </nav>
     <a class="ag-btn ag-btn--primary ag-header-cta" [href]="mailto" i18n="@@contactUs"
       >Contáctanos</a
     >
+    <div class="lang">
+      <button
+        class="lang-toggle"
+        type="button"
+        aria-controls="lang-list"
+        [attr.aria-expanded]="languagesOpen()"
+        (click)="languagesOpen.set(!languagesOpen())"
+      >
+        <img class="flag" [src]="'assets/brand/flags/' + currentLanguage.flag + '.svg'" alt="" />
+        <span class="visually-hidden" i18n="@@nav.language">Idioma</span>
+        {{ currentLanguage.code }}
+      </button>
+      @if (languagesOpen()) {
+        <ul class="lang-list" id="lang-list">
+          <ng-container *ngTemplateOutlet="languageLinks" />
+        </ul>
+      }
+    </div>
     <button
       #menuButton
       class="ag-menu-btn"
@@ -82,10 +99,26 @@
             </a>
           </li>
         }
-        <li>
-          <a [href]="languageHref()" [attr.lang]="otherLanguage.lang"
-            ><span>{{ otherLanguage.label }}</span></a
+        <li class="lang">
+          <button
+            class="lang-toggle"
+            type="button"
+            aria-controls="menu-lang-list"
+            [attr.aria-expanded]="languagesOpen()"
+            (click)="languagesOpen.set(!languagesOpen())"
           >
+            <span i18n="@@nav.language">Idioma</span>
+            <img
+              class="flag"
+              [src]="'assets/brand/flags/' + currentLanguage.flag + '.svg'"
+              alt=""
+            />
+          </button>
+          @if (languagesOpen()) {
+            <ul class="lang-sublist" id="menu-lang-list">
+              <ng-container *ngTemplateOutlet="languageLinks" />
+            </ul>
+          }
         </li>
       </ul>
     </nav>
@@ -124,5 +157,21 @@
     <a routerLink="/admin" routerLinkActive ariaCurrentWhenActive="page" i18n="@@nav.admin"
       >Administración</a
     >
+  }
+</ng-template>
+
+<ng-template #languageLinks>
+  @for (language of languages; track language.subPath) {
+    <li>
+      <a
+        [href]="languageHref(language.subPath)"
+        [attr.lang]="language.subPath"
+        [attr.hreflang]="language.subPath"
+        [attr.aria-current]="language === currentLanguage ? 'true' : null"
+      >
+        <img class="flag" [src]="'assets/brand/flags/' + language.flag + '.svg'" alt="" />
+        <span>{{ language.label }}</span>
+      </a>
+    </li>
   }
 </ng-template>

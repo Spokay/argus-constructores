@@ -847,6 +847,17 @@
           <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="nav.language" datatype="html">
+        <source>Idioma</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.html</context>
+          <context context-type="linenumber">110,112</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="nav.menu" datatype="html">
         <source>Menú</source>
         <context-group purpose="location">

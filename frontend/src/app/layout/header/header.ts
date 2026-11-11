@@ -12,8 +12,12 @@ import { filter } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.html',
+  styleUrl: './header.css',
   imports: [RouterLink, RouterLinkActive, NgTemplateOutlet],
-  host: { '(document:keydown.escape)': 'closeMenu()' },
+  host: {
+    '(document:keydown.escape)': 'closeMenu(); languagesOpen.set(false)',
+    '(document:click)': 'closeLanguagesOnClickOutside($event)',
+  },
 })
 export class Header {
   private readonly router = inject(Router);
@@ -23,11 +27,14 @@ export class Header {
   readonly contact = CONTACT;
   readonly mailto = `mailto:${CONTACT.email}`;
   readonly menuOpen = signal(false);
+  readonly languagesOpen = signal(false);
 
   /** Each locale is its own build under /es/ or /en/: switching is a full page load. */
-  readonly otherLanguage = this.locale.startsWith('es')
-    ? { subPath: 'en', lang: 'en', label: 'English' }
-    : { subPath: 'es', lang: 'es', label: 'Español' };
+  readonly languages = [
+    { subPath: 'es', code: 'ES', label: 'Español', flag: 'co' },
+    { subPath: 'en', code: 'EN', label: 'English', flag: 'gb' },
+  ];
+  readonly currentLanguage = this.locale.startsWith('es') ? this.languages[0] : this.languages[1];
 
   private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
   private readonly menuPanel = viewChild<ElementRef<HTMLElement>>('menuPanel');
@@ -38,8 +45,12 @@ export class Header {
       .subscribe(() => this.closeMenu());
   }
 
-  languageHref(): string {
-    return `/${this.otherLanguage.subPath}${this.router.url}`;
+  languageHref(subPath: string): string {
+    return `/${subPath}${this.router.url}`;
+  }
+
+  closeLanguagesOnClickOutside(event: MouseEvent): void {
+    if (!(event.target as Element).closest('.lang')) this.languagesOpen.set(false);
   }
 
   openMenu(): void {
