@@ -1,0 +1,104 @@
+<section
+  class="ag-section"
+  id="projects"
+  aria-roledescription="carrusel"
+  i18n-aria-roledescription="@@projects.carousel"
+  aria-labelledby="projects-title"
+>
+  <h2 class="page-title" id="projects-title" i18n="@@nav.projects">Proyectos</h2>
+  <p class="page-lead" i18n="@@projects.lead">
+    Nuestra experiencia se concentra en centros hospitalarios, educativos y gubernamentales.
+  </p>
+
+  @if (sectors().length > 1) {
+    <div
+      class="sector-filter"
+      role="group"
+      aria-label="Filtrar por sector"
+      i18n-aria-label="@@projects.filterLabel"
+    >
+      <button
+        type="button"
+        [attr.aria-pressed]="sector() === null"
+        (click)="selectSector(null)"
+        i18n="@@projects.all"
+      >
+        Todos
+      </button>
+      @for (option of sectors(); track option) {
+        <button
+          type="button"
+          [attr.aria-pressed]="sector() === option"
+          (click)="selectSector(option)"
+        >
+          {{ sectorLabels[option] }}
+        </button>
+      }
+    </div>
+  }
+
+  @if (visibleProjects(); as projects) {
+    @if (projects.length) {
+      <div
+        class="carousel"
+        (mouseenter)="hold(true)"
+        (mouseleave)="hold(false)"
+        (focusin)="hold(true)"
+        (focusout)="hold(false)"
+      >
+        @if (snapCount() > 1) {
+          <button
+            class="control control--prev"
+            type="button"
+            aria-label="Proyecto anterior"
+            i18n-aria-label="@@projects.previous"
+            (click)="previous()"
+          >
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 3 6 10l7 7" /></svg>
+          </button>
+        }
+        <div class="embla" #viewport>
+          <div class="embla-container">
+            @for (project of projects; track project.id; let i = $index) {
+              <div
+                class="embla-slide"
+                role="group"
+                aria-roledescription="diapositiva"
+                i18n-aria-roledescription="@@projects.slide"
+                [attr.aria-label]="i + 1 + ' / ' + projects.length"
+              >
+                <app-project-card [project]="project" />
+              </div>
+            }
+          </div>
+        </div>
+        @if (snapCount() > 1) {
+          <button
+            class="control control--next"
+            type="button"
+            aria-label="Proyecto siguiente"
+            i18n-aria-label="@@projects.next"
+            (click)="next()"
+          >
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 3 7 7-7 7" /></svg>
+          </button>
+        }
+      </div>
+      @if (snapCount() > 1) {
+        <div class="projects-dots">
+          @for (i of snaps(); track i) {
+            <button
+              class="dot"
+              type="button"
+              [attr.aria-label]="pageLabel(i + 1)"
+              [attr.aria-current]="i === selectedSnap() ? 'true' : null"
+              (click)="goTo(i)"
+            ></button>
+          }
+        </div>
+      }
+    } @else {
+      <p i18n="@@projects.empty">Aún no hay proyectos publicados.</p>
+    }
+  }
+</section>

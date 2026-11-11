@@ -1,0 +1,188 @@
+/* Sector filter: square outlined buttons (hover like the design system's secondary button), the selected one filled like the primary button (white
+   on cyan would be too low in contrast for 14px text). */
+.sector-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-9);
+}
+
+.sector-filter button {
+  min-height: 40px;
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface);
+  color: var(--ink);
+  border: var(--border-strong) solid var(--field-border);
+  border-radius: var(--radius-none);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.sector-filter button:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+
+.sector-filter button[aria-pressed='true'] {
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--on-action);
+}
+
+.sector-filter button[aria-pressed='true']:hover {
+  background: var(--action-hover);
+  border-color: var(--action-hover);
+}
+
+.sector-filter button:focus-visible {
+  outline: var(--border-strong) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Arrows on the sides of the cards: outside them when the window leaves room, over their edges
+   otherwise (opaque so they stay readable on photos). */
+.carousel {
+  position: relative;
+}
+
+.control {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-height);
+  height: var(--control-height);
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink);
+  border: var(--border-strong) solid var(--ink);
+  border-radius: var(--radius-none);
+  cursor: pointer;
+}
+
+.control:hover {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.control:focus-visible,
+.dot:focus-visible {
+  outline: var(--border-strong) solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.control svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.control svg path[d^='M13'],
+.control svg path[d^='m7'] {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+/* Embla: the viewport clips, the container scrolls, slide width sets the cards per view. */
+.embla {
+  --slide-gap: var(--space-9);
+  --slides-per-view: 3;
+
+  overflow: hidden;
+}
+
+.embla-container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-gap) * -1);
+}
+
+.embla-slide {
+  flex: 0 0 calc(100% / var(--slides-per-view));
+  /* Flex so the card stretches: every card of a view gets the same height. */
+  display: flex;
+  box-sizing: border-box;
+  min-width: 0;
+  padding-left: var(--slide-gap);
+}
+
+/* `.ag-card` lives in ProjectCard's template (whose host is `display: contents`), hence ::ng-deep,
+   kept under .embla-slide so it cannot leak. */
+.embla-slide ::ng-deep .ag-card {
+  max-width: none;
+}
+
+.projects-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+/* 24px hit area around a square mark. */
+.dot {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dot::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  background: var(--field-border);
+}
+
+.dot:hover::before {
+  background: var(--ink);
+}
+
+.dot[aria-current='true']::before {
+  background: var(--accent-fill);
+}
+
+@media (max-width: 900px) {
+  .embla {
+    --slides-per-view: 2;
+    --slide-gap: var(--space-6);
+  }
+}
+
+@media (max-width: 600px) {
+  .embla {
+    --slides-per-view: 1;
+  }
+}
+
+.control--prev {
+  left: 0;
+}
+
+.control--next {
+  right: 0;
+}
+
+/* 1200px of content + 2 × (48px arrow + 16px gap) + gutters. */
+@media (min-width: 1340px) {
+  .control--prev {
+    left: calc((var(--control-height) + var(--space-4)) * -1);
+  }
+
+  .control--next {
+    right: calc((var(--control-height) + var(--space-4)) * -1);
+  }
+}

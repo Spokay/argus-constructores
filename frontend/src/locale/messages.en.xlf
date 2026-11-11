@@ -1222,6 +1222,62 @@
           <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="projects.carousel" datatype="html">
+        <source>carrusel</source>
+        <target>carousel</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.next" datatype="html">
+        <source>Proyecto siguiente</source>
+        <target>Next project</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.page" datatype="html">
+        <source>Página <x id="page" equiv-text="page"/></source>
+        <target>Page <x id="page" equiv-text="page"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.previous" datatype="html">
+        <source>Proyecto anterior</source>
+        <target>Previous project</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.slide" datatype="html">
+        <source>diapositiva</source>
+        <target>slide</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.all" datatype="html">
+        <source> Todos </source>
+        <target>All</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.filterLabel" datatype="html">
+        <source>Filtrar por sector</source>
+        <target>Filter by sector</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

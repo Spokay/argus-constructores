@@ -23,9 +23,9 @@ export type ProjectRequest = Omit<Project, 'id' | 'imageIds'>;
 export const SECTORS: Sector[] = [
   'HOSPITAL',
   'EDUCATION',
+  'HOUSING',
   'INSTITUTIONAL',
   'INFRASTRUCTURE',
-  'HOUSING',
 ];
 
 export const SECTOR_LABELS: Record<Sector, string> = {

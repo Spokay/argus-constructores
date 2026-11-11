@@ -741,6 +741,13 @@
           <context context-type="linenumber">73,74</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="projects.carousel" datatype="html">
+        <source>carrusel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="projects.lead" datatype="html">
         <source> Nuestra experiencia se concentra en centros hospitalarios, educativos y gubernamentales. </source>
         <context-group purpose="location">
@@ -748,11 +755,53 @@
           <context context-type="linenumber">10,13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="projects.filterLabel" datatype="html">
+        <source>Filtrar por sector</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.all" datatype="html">
+        <source> Todos </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.previous" datatype="html">
+        <source>Proyecto anterior</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.slide" datatype="html">
+        <source>diapositiva</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.next" datatype="html">
+        <source>Proyecto siguiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.html</context>
+          <context context-type="linenumber">79,80</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="projects.empty" datatype="html">
         <source>Aún no hay proyectos publicados.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/projects/projects.html</context>
           <context context-type="linenumber">101,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projects.page" datatype="html">
+        <source>Página <x id="page" equiv-text="page"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.ts</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nav.services" datatype="html">

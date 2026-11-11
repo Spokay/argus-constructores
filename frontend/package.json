@@ -42,6 +42,8 @@
     "@angular/forms": "^22.1.4",
     "@angular/platform-browser": "^22.1.4",
     "@angular/router": "^22.1.4",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.16.2"
