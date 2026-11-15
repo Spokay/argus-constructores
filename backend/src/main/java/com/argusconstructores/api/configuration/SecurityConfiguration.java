@@ -68,6 +68,8 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/projects/**").permitAll()
+                        // 404 when chat.enabled=false: the controller is not registered.
+                        .requestMatchers(HttpMethod.POST, "/chat").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
