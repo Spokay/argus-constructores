@@ -1,0 +1,68 @@
+<section class="campaign-hero" data-theme="brochure">
+  <div class="ag-section">
+    <h1 class="page-title">{{ title }}</h1>
+    @if (left(); as left) {
+      <p class="campaign-countdown">
+        <time [attr.datetime]="endsAt.toISOString()" aria-hidden="true">
+          @for (part of [left.days, left.hours, left.minutes, left.seconds]; track $index) {
+            <span class="part">{{ $index === 0 ? part : pad(part) }}</span>
+          }
+        </time>
+        <span class="visually-hidden" i18n="@@campaign.endsOn">Termina el {{ endDate }}</span>
+      </p>
+      <p class="campaign-units" aria-hidden="true">
+        <span i18n="@@campaign.days">días</span><span i18n="@@campaign.hours">horas</span
+        ><span i18n="@@campaign.minutes">minutos</span
+        ><span i18n="@@campaign.seconds">segundos</span>
+      </p>
+    } @else {
+      <p class="page-lead" data-testid="campaign-ended" i18n="@@campaign.ended">
+        La campaña terminó. ¡Gracias por su interés!
+      </p>
+    }
+  </div>
+</section>
+
+<!-- The posters carry their own text: shown whole, never written over. -->
+<section
+  class="campaign-gallery"
+  tabindex="0"
+  aria-label="Colección Argus × gef"
+  i18n-aria-label="@@campaign.galleryLabel"
+>
+  <img
+    src="assets/campaign/argus-x-gef-man-vest.jpeg"
+    width="1122"
+    height="1402"
+    alt="Argus × gef, colaboración exclusiva: chaqueta de gamuza café, edición limitada"
+    i18n-alt="@@campaign.photoMan"
+  />
+  <img
+    src="assets/campaign/argus-x-gef-woman-jacket.jpeg"
+    width="1024"
+    height="1536"
+    alt="Argus × gef, colaboración exclusiva: capa de pata de gallo con lazo, edición limitada"
+    i18n-alt="@@campaign.photoWoman"
+  />
+  <img
+    src="assets/campaign/argus-x-gef-children-vest.jpeg"
+    width="1122"
+    height="1402"
+    alt="Argus × gef, Little Icons: chaquetas negras de peluche para niños"
+    i18n-alt="@@campaign.photoChildren"
+  />
+</section>
+
+<!-- Campaign content: replace the placeholders below with the real text. -->
+<section class="ag-section campaign-content">
+  <!-- Gleam campaign widget: the link is the fallback when the script is blocked. -->
+  <div class="campaign-gleam">
+    <a
+      class="e-widget no-button"
+      href="https://gleam.io/G1goV/every-scar-builds-a-story"
+      rel="nofollow"
+    >
+      {{ title }}
+    </a>
+  </div>
+</section>

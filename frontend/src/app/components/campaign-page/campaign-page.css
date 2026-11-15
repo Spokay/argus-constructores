@@ -1,0 +1,80 @@
+/* Three posters side by side, whole (4:5, cropped from the bottom only, never their header). */
+.campaign-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--midnight);
+}
+
+.campaign-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+}
+
+.campaign-gallery:focus-visible {
+  outline: var(--border-strong) solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
+/* Phones: one poster at a time, swiped (the section is focusable for keyboard scrolling). */
+@media (max-width: 700px) {
+  .campaign-gallery {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 85%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .campaign-gallery img {
+    scroll-snap-align: center;
+  }
+}
+
+.campaign-hero {
+  background: var(--surface);
+  color: var(--ink);
+  text-align: center;
+}
+
+.campaign-countdown {
+  margin: var(--space-6) 0 var(--space-2);
+}
+
+.campaign-countdown time,
+.campaign-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 7rem));
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.part {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-text);
+}
+
+.campaign-units {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.campaign-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+/* Gleam sizes its own iframe; the box only keeps it within the content width. */
+.campaign-gleam {
+  width: 100%;
+}

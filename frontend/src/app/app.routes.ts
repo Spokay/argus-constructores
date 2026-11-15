@@ -16,6 +16,12 @@ export const routes: Routes = [
   { path: 'projects', redirectTo: () => toHomeSection('projects'), pathMatch: 'full' },
   { path: 'projects/:id', component: ProjectDetail },
   { path: 'about', redirectTo: () => toHomeSection('about'), pathMatch: 'full' },
+  // Temporary marketing campaign, linked from CampaignBanner.
+  {
+    path: 'campaign',
+    loadComponent: () =>
+      import('@components/campaign-page/campaign-page').then((m) => m.CampaignPage),
+  },
   { path: 'login', component: LoginPage },
   {
     path: 'admin',

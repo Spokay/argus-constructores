@@ -487,6 +487,101 @@
           <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="campaign.bannerLabel" datatype="html">
+        <source>Campaña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-banner/campaign-banner.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.endsOn" datatype="html">
+        <source>Termina el <x id="INTERPOLATION" equiv-text="{{ endDate }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-banner/campaign-banner.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.cta" datatype="html">
+        <source>Ver la campaña</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-banner/campaign-banner.html</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.close" datatype="html">
+        <source>Cerrar el anuncio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-banner/campaign-banner.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.days" datatype="html">
+        <source>días</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.hours" datatype="html">
+        <source>horas</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.minutes" datatype="html">
+        <source>minutos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.seconds" datatype="html">
+        <source>segundos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.ended" datatype="html">
+        <source> La campaña terminó. ¡Gracias por su interés! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">20,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.galleryLabel" datatype="html">
+        <source>Colección Argus × gef</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.photoMan" datatype="html">
+        <source>Argus × gef, colaboración exclusiva: chaqueta de gamuza café, edición limitada</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.photoWoman" datatype="html">
+        <source>Argus × gef, colaboración exclusiva: capa de pata de gallo con lazo, edición limitada</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="campaign.photoChildren" datatype="html">
+        <source>Argus × gef, Little Icons: chaquetas negras de peluche para niños</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/campaign-page/campaign-page.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="chat.subtitle" datatype="html">
         <source>Asistente IA</source>
         <context-group purpose="location">

@@ -1,0 +1,28 @@
+@if (visible()) {
+  @if (left(); as left) {
+    <aside class="campaign-banner" aria-label="Campaña" i18n-aria-label="@@campaign.bannerLabel">
+      <p class="campaign-title">{{ title }}</p>
+      <p class="campaign-countdown">
+        <time [attr.datetime]="endsAt.toISOString()" aria-hidden="true">
+          <span class="segment">{{ left.days }}<span class="unit">d</span></span>
+          <span class="segment">{{ pad(left.hours) }}<span class="unit">h</span></span>
+          <span class="segment">{{ pad(left.minutes) }}<span class="unit">m</span></span>
+          <span class="segment">{{ pad(left.seconds) }}<span class="unit">s</span></span>
+        </time>
+        <span class="visually-hidden" i18n="@@campaign.endsOn">Termina el {{ endDate }}</span>
+      </p>
+      <a class="ag-btn ag-btn--primary ag-btn--sm" routerLink="/campaign" i18n="@@campaign.cta"
+        >Ver la campaña</a
+      >
+      <button
+        type="button"
+        class="campaign-close"
+        aria-label="Cerrar el anuncio"
+        i18n-aria-label="@@campaign.close"
+        (click)="dismiss()"
+      >
+        ×
+      </button>
+    </aside>
+  }
+}
