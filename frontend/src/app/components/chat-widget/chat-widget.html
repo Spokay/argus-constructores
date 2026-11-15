@@ -1,0 +1,101 @@
+@if (open()) {
+  <section class="chat-panel" id="chat-panel" role="dialog" aria-labelledby="chat-title">
+    <header class="chat-header">
+      <div>
+        <h2 class="chat-title" id="chat-title">Jaime</h2>
+        <p class="chat-subtitle" i18n="@@chat.subtitle">Asistente IA</p>
+      </div>
+      <button
+        type="button"
+        class="chat-close"
+        aria-label="Cerrar el asistente"
+        i18n-aria-label="@@chat.close"
+        (click)="close()"
+      >
+        ×
+      </button>
+    </header>
+    <p class="chat-disclaimer" i18n="@@chat.disclaimer">
+      Jaime es una IA: puede equivocarse. Confirme los datos importantes con nuestro equipo.
+    </p>
+    <ol class="chat-messages" #messageList aria-live="polite">
+      <li class="chat-message" i18n="@@chat.welcome">
+        Hola, soy Jaime. ¿En qué puedo ayudarle sobre nuestros proyectos y servicios?
+      </li>
+      @for (message of messages(); track $index) {
+        <li class="chat-message" [class.chat-message--user]="message.role === 'USER'">
+          {{ message.content }}
+        </li>
+      }
+      @if (sending()) {
+        <li class="chat-message chat-typing" i18n="@@chat.typing">Escribiendo…</li>
+      }
+    </ol>
+    @if (error(); as message) {
+      <p class="ag-error chat-error" role="alert">{{ message }}</p>
+    }
+    <form class="chat-form" (submit)="$event.preventDefault(); send()">
+      <input
+        #input
+        class="ag-input"
+        name="question"
+        autocomplete="off"
+        maxlength="2000"
+        placeholder="Escriba su pregunta"
+        i18n-placeholder="@@chat.placeholder"
+        aria-label="Su pregunta"
+        i18n-aria-label="@@chat.question"
+        [value]="draft()"
+        (input)="draft.set(input.value)"
+      />
+      @if (canListen) {
+        <button
+          type="button"
+          class="ag-btn ag-btn--secondary chat-icon-button"
+          title="Idioma de la voz"
+          i18n-title="@@chat.voiceLanguage"
+          [disabled]="listening()"
+          (click)="toggleVoiceLanguage()"
+        >
+          <span class="visually-hidden" i18n="@@chat.voiceLanguage">Idioma de la voz</span>
+          {{ voiceLanguage() === 'en-US' ? 'EN' : 'ES' }}
+        </button>
+        <button
+          type="button"
+          class="ag-btn ag-btn--secondary chat-icon-button"
+          aria-label="Hablar"
+          i18n-aria-label="@@chat.speak"
+          [attr.aria-pressed]="listening()"
+          [class.is-listening]="listening()"
+          (click)="toggleListening()"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" />
+            <path d="M19 11a7 7 0 0 1-14 0M12 18v3" />
+          </svg>
+        </button>
+      }
+      <button
+        type="submit"
+        class="ag-btn ag-btn--primary"
+        [disabled]="sending() || !draft().trim()"
+        i18n="@@chat.send"
+      >
+        Enviar
+      </button>
+    </form>
+  </section>
+}
+<button
+  #launcher
+  type="button"
+  class="ag-btn ag-btn--primary chat-launcher"
+  aria-controls="chat-panel"
+  [attr.aria-expanded]="open()"
+  (click)="toggle()"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 5h16v11H9l-5 4V5Z" />
+  </svg>
+  <span i18n="@@chat.launcher">Pregúntele a Jaime</span>
+</button>

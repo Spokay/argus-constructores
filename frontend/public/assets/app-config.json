@@ -1,5 +1,6 @@
 {
   "resourceServer": {
     "baseUrl": "/api"
-  }
+  },
+  "chatEnabled": true
 }

@@ -1278,6 +1278,114 @@
           <context context-type="linenumber">17,18</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="chat.subtitle" datatype="html">
+        <source>Asistente IA</source>
+        <target>AI assistant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.close" datatype="html">
+        <source>Cerrar el asistente</source>
+        <target>Close the assistant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.disclaimer" datatype="html">
+        <source> Argus es una IA: puede equivocarse. Confirme los datos importantes con nuestro equipo. </source>
+        <target>Jaime is an AI: it can make mistakes. Confirm important details with our team.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.welcome" datatype="html">
+        <source> Hola, soy Argus. ¿En qué puedo ayudarle sobre nuestros proyectos y servicios? </source>
+        <target>Hello, I am Jaime. How can I help you with our projects and services?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">23,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.typing" datatype="html">
+        <source>Escribiendo…</source>
+        <target>Typing…</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">31,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.placeholder" datatype="html">
+        <source>Escriba su pregunta</source>
+        <target>Type your question</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.question" datatype="html">
+        <source>Su pregunta</source>
+        <target>Your question</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.speak" datatype="html">
+        <source>Hablar</source>
+        <target>Speak</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.send" datatype="html">
+        <source> Enviar </source>
+        <target>Send</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">73,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.launcher" datatype="html">
+        <source>Pregúntele a Jaime</source>
+        <target>Ask Jaime</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">89,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.busy" datatype="html">
+        <source>Error: demasiadas preguntas en este momento. Intente de nuevo en un minuto.</source>
+        <target>Error: too many questions right now. Try again in a minute.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.ts</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.failed" datatype="html">
+        <source>Error: el asistente no está disponible. Intente de nuevo.</source>
+        <target>Error: the assistant is unavailable. Try again.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.ts</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chat.voiceLanguage" datatype="html">
+        <source>Idioma de la voz</source>
+        <target>Voice language</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/chat-widget/chat-widget.html</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

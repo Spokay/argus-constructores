@@ -22,6 +22,8 @@ export interface AppConfig {
   logging?: {
     level?: LogLevel;
   };
+  /** Shows the temporary chat assistant; the API must also run with `CHAT_ENABLED=true`. */
+  chatEnabled?: boolean;
 }
 
 @Injectable({ providedIn: 'root' })
