@@ -70,6 +70,15 @@ npm run build
 - The site shows **one photo per project** (the first image); the admin form replaces it
   (upload the new one, then delete the old ones).
 
+## Chat assistant (temporary, for a presentation)
+
+- `POST /api/chat` (backend `chat/`, anonymous) sends the whole conversation to Claude with the
+  KB in the system prompt: `resources/chat/knowledge-base.md` + published projects. No RAG.
+- Off unless `CHAT_ENABLED=true` (then `ANTHROPIC_API_KEY` is required; off = 404) and
+  `chatEnabled: true` in `app-config.json`. `ChatThrottle`: 30 requests/min globally, in memory.
+- Frontend `components/chat-widget/` (launcher bottom right, Web Speech dictation + read-aloud).
+  ADR 0007 lists what to delete to remove it.
+
 ## Design system and i18n (frontend)
 
 - Design system = Claude Design artifact “Argus Constructores”
