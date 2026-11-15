@@ -79,6 +79,14 @@ npm run build
 - Frontend `components/chat-widget/` (launcher bottom right, Web Speech dictation + read-aloud).
   ADR 0007 lists what to delete to remove it.
 
+## Campaign banner (temporary)
+
+- `core/campaign.ts` holds `CAMPAIGN` (`id`, `endsAt` in Bogotá time) + countdown helpers.
+  `CampaignBanner` sits above the header (closed = `localStorage['dismissed:<id>']`, hidden at the
+  deadline and on `/campaign`); `CampaignPage` is the lazy `/campaign` route. New campaign → new `id`.
+- To remove: those three files/folders, the route and `<app-campaign-banner />` in `app.html`.
+- Use `toLocaleDateString`, not `DatePipe`: the pipe lands in the initial bundle even from a lazy route.
+
 ## Design system and i18n (frontend)
 
 - Design system = Claude Design artifact “Argus Constructores”
