@@ -9,6 +9,7 @@ pipeline {
   }
   parameters {
     string(name: 'IMAGE_TAG', defaultValue: 'latest', description: 'Tag de l\'image a deployer (sha, version, latest)')
+    string(name: 'BRANCH', defaultValue: 'main', description: 'Branche dont on deploie docker-compose.prod.yaml (doit correspondre a l\'image)')
   }
   environment {
     APP      = 'argus-constructores'   // = nom du projet compose. Ne jamais le changer (volumes prefixes par lui).
@@ -23,6 +24,10 @@ pipeline {
           sh '''
             export DOCKER_CONFIG="$WORKSPACE@tmp/docker"   # login isole, rien dans ~/.docker
             export VERSION="$IMAGE_TAG"
+            # Le job lit ce Jenkinsfile depuis main : on remplace le compose par celui de BRANCH,
+            # sinon une branche qui ajoute des variables d'environnement les perd au deploiement.
+            git fetch --depth=1 origin "$BRANCH"
+            git checkout FETCH_HEAD -- docker-compose.prod.yaml
             compose() { docker compose -p "$APP" -f docker-compose.prod.yaml --env-file "$ENV_FILE" "$@"; }
             echo "$REG_PASS" | docker login "$REGISTRY" -u "$REG_USER" --password-stdin
             compose config -q
