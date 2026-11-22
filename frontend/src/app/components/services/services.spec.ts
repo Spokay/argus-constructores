@@ -33,10 +33,12 @@ describe('Services', () => {
     const { fixture, element } = render();
     expect(element.querySelector('.service.is-revealed')).toBeNull();
 
-    // IntersectionObserver reports on a later frame.
-    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    await fixture.whenStable();
-    fixture.detectChanges();
+    // The component starts observing after its first render and IntersectionObserver reports on a
+    // later frame; neither takes a fixed number of frames, so a fixed wait was flaky.
+    for (let frame = 0; frame < 60 && !element.querySelector('.service.is-revealed'); frame++) {
+      await new Promise(requestAnimationFrame);
+      fixture.detectChanges();
+    }
     expect(element.querySelector('.service.is-revealed')).not.toBeNull();
   });
 });
